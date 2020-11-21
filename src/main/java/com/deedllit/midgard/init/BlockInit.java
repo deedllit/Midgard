@@ -450,6 +450,26 @@ public class BlockInit {
 	public static final RegistryObject<Block> PURPLE_SEA_HORSE = BLOCKS.register("purple_sea_horse",
 			() -> new MidgardSeaGrassBlock(Block.Properties.from(Blocks.SEAGRASS)));
 
+	public static final RegistryObject<Block> HAWORTHIA_HAWORTHIOPSIS = BLOCKS.register("haworthia_haworthiopsis",
+			() -> new YggdrasilGrass(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND} , Block.Properties.from(Blocks.GRASS))) ;
+	
+	public static final RegistryObject<Block> HYACINTH_BLUE = BLOCKS.register("hyacinth_blue",
+			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+
+	public static final RegistryObject<Block> HYACINTH_ORANGE = BLOCKS.register("hyacinth_orange",
+			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+	
+	public static final RegistryObject<Block> HYACINTH_PINK = BLOCKS.register("hyacinth_pink",
+			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+	
+	public static final RegistryObject<Block> HYACINTH_RED = BLOCKS.register("hyacinth_red",
+			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+	
+	public static final RegistryObject<Block> HYACINTH_WHITE = BLOCKS.register("hyacinth_white",
+			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+	
+	public static final RegistryObject<Block> HYACINTH_YELLOW = BLOCKS.register("hyacinth_yellow",
+			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
 	
 		
 	public static final RegistryObject<Block> WHITE_SAND = BLOCKS.register("white_sand", 

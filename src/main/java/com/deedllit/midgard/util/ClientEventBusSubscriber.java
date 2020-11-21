@@ -140,6 +140,13 @@ public class ClientEventBusSubscriber {
 		RenderTypeLookup.setRenderLayer(BlockInit.ALPINE_BETONY.get(), basicRender);		
 		RenderTypeLookup.setRenderLayer(BlockInit.FIRELILY.get(), basicRender);		
 		RenderTypeLookup.setRenderLayer(BlockInit.LAVENDER.get(), basicRender);		
+		RenderTypeLookup.setRenderLayer(BlockInit.HAWORTHIA_HAWORTHIOPSIS.get(), basicRender);		
+		RenderTypeLookup.setRenderLayer(BlockInit.HYACINTH_BLUE.get(), basicRender);		
+		RenderTypeLookup.setRenderLayer(BlockInit.HYACINTH_ORANGE.get(), basicRender);		
+		RenderTypeLookup.setRenderLayer(BlockInit.HYACINTH_PINK.get(), basicRender);		
+		RenderTypeLookup.setRenderLayer(BlockInit.HYACINTH_RED.get(), basicRender);		
+		RenderTypeLookup.setRenderLayer(BlockInit.HYACINTH_WHITE.get(), basicRender);		
+		RenderTypeLookup.setRenderLayer(BlockInit.HYACINTH_YELLOW.get(), basicRender);		
 		
 		RenderTypeLookup.setRenderLayer(BlockInit.SULFUR_CRYSTAL.get(), basicRender);		
 

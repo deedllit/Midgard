@@ -66,16 +66,16 @@ public class MythologycraftWaterBottomCropsBlock extends MythologycraftExtendabl
 	
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {			
-		BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
+		//BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
 				
-		
+				
 		//valid bottom
-		blockpos$mutableblockpos.setPos(pos.getX(), pos.getY() - 1, pos.getZ());
-		if (!PlacementHelper.blockIsInList(worldIn.getBlockState(blockpos$mutableblockpos).getBlock(), this.getPlacableOn()))  {
-			Midgard.LOGGER.info("Not good floor");			
-			Midgard.LOGGER.info( worldIn.getBlockState(blockpos$mutableblockpos).getBlock() );
+		//blockpos$mutableblockpos.setPos(pos.getX(), pos.getY() - 1, pos.getZ());
+		if (!PlacementHelper.blockIsInList(worldIn.getBlockState(pos.down()).getBlock(), this.getPlacableOn()))  {
 			return false ; 
 		}
+		
+		Midgard.LOGGER.info("IS VALID");
 					
 		return true ; 
 		

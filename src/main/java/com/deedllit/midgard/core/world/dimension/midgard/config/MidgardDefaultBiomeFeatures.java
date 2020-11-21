@@ -235,12 +235,7 @@ public class MidgardDefaultBiomeFeatures {
 
 	
 	public static void addRice(Biome biomeIn) {
-        //biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(RICE, new BlockState[]{DIRT, SAND, CLAY, GRAVEL}, new BlockState[]{WATER}, new BlockState[]{AIR})).withPlacement(Placement.CARVING_MASK.configure(new CaveEdgeConfig(GenerationStage.Carving.LIQUID, 0.1F))));    	
-	    //biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(RICE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
-		
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureInit.RICE.withConfiguration(new RiceFeatureConfig(64, 0.6D)).withPlacement(Placement.TOP_SOLID_HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-
-		
 	}
 	
 	public static void addMoreDesertFlowers(Biome biomeIn) {
