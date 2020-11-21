@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "midgard:blocks/alpine_betony"
+    }
+}

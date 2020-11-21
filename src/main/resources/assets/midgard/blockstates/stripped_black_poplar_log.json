@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "midgard:block/stripped_black_poplar_log" },
+        "axis=z":   { "model": "midgard:block/stripped_black_poplar_log", "x": 90 },
+        "axis=x":   { "model": "midgard:block/stripped_black_poplar_log", "x": 90, "y": 90 }
+    }
+}

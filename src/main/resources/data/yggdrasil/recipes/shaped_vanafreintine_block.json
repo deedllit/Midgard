@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "yggdrasil:vanafreintine_ingot"
+    }
+  },
+  "result": {
+    "item": "yggdrasil:vanafreintine_block"
+  }
+}

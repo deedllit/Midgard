@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "midgard:blocks/kangaroo_paw_pink"
+  }
+}

@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"yggdrasil:iron_wood_leaves",
+		"yggdrasil:palm_leaves",		
+		"yggdrasil:muspelheim_epluphifer_leaves",
+		"yggdrasil:yggdrasil_tree_leaves",
+		"midgard_mangrove_leaves"
+	]
+}

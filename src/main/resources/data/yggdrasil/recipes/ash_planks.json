@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "yggdrasil:ash_logs"
+    }
+  ],
+  "result": {
+    "item": "yggdrasil:ash_planks",
+    "count": 4
+  }
+}

@@ -1,0 +1,6 @@
+{
+	"parent":"item/generated",
+	"textures" : {
+		"layer0" : "midgard:items/rune_elder_futhark_second_aitt_eihwaz"
+		}
+}

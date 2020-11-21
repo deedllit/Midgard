@@ -1,0 +1,21 @@
+{
+ 	"music_grundar": {
+    	"category": "music",
+    	"sounds": [
+      		{
+        		"name": "midgard:disc/grundar",
+        		"stream": true
+      		}
+    	]
+  	},
+	"disc.grundar": {
+		"category": "disc",
+		"subtitle": "grundar",
+		"sounds": [
+			{
+				"name": "midgard:disc/grundar",
+				"stream": true
+			}
+		]
+	}
+}

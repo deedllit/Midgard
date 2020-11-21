@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "midgard:blocks/amethyst_quartz_block_bottom",
+        "top": "midgard:blocks/amethyst_quartz_block_bottom",
+        "side": "midgard:blocks/amethyst_quartz_block_bottom"
+    }
+}

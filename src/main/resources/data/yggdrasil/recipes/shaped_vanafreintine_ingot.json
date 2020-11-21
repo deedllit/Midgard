@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XIX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "yggdrasil:vanafreintine"
+    },
+    "I": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "result": {
+    "item": "yggdrasil:vanafreintine_ingot"
+  }
+}

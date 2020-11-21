@@ -1,0 +1,6 @@
+{
+    "parent": "block/template_fence_gate_wall",
+    "textures": {
+        "texture": "midgard:blocks/white_poplar_planks"
+    }
+}

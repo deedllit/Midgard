@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_pressure_plate",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "yggdrasil:midgard_mangrove_planks"
+    }
+  },
+  "result": {
+    "item": "yggdrasil:midgard_mangrove_pressure_plate"
+  }
+}

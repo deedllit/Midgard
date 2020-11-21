@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+	    "yggdrasil:ash_log",
+	    "yggdrasil:ash_wood",
+	    "yggdrasil:stripped_ash_log",
+	    "yggdrasil:stripped_ash_wood"
+  ]
+}

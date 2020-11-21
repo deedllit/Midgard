@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top",
+    "textures": {
+        "bottom": "midgard:blocks/lead_door_bottom",
+        "top": "midgard:blocks/lead_door_top"
+    }
+}

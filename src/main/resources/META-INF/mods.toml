@@ -1,0 +1,55 @@
+modLoader="javafml" 
+
+loaderVersion="[31,)"
+
+issueTrackerURL="http://my.issue.tracker/"
+
+[[mods]] 
+
+modId="midgard"
+
+#version="${file.jarVersion}"
+version="Dev 0.1"
+
+displayName="Midgard"
+
+updateJSONURL="http://myurl.me/"
+
+displayURL="http://example.com"
+
+logoFile="examplemod.png"
+
+credits="David Montandon"
+
+authors="David Montandon"
+
+description='''
+In Germanic cosmology, Midgard is the equivalent of the Earth. 
+
+Midgard Mod will make Minecraft world more like Earth.
+
+You can read more about it on wikipedia : https://en.wikipedia.org/wiki/Midgard
+'''
+
+
+
+# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.yggdrasil]] #optional
+    # the modid of the dependency
+    modId="forge" #mandatory
+    # Does this dependency have to exist - if not, ordering below must be specified
+    mandatory=true #mandatory
+    # The version range of the dependency
+    versionRange="[31,)" #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="BOTH"
+    
+# Here's another dependency
+[[dependencies.yggdrasil]]
+    modId="midgard"
+    mandatory=false
+    versionRange="[0.1]"
+    ordering="BEFORE"
+    side="BOTH"

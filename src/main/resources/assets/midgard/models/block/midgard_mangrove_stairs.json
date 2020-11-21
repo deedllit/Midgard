@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "midgard:blocks/midgard_mangrove_planks",
+        "top": "midgard:blocks/midgard_mangrove_planks",
+        "side": "midgard:blocks/midgard_mangrove_planks"
+    }
+}

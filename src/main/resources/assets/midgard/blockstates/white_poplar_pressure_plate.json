@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "midgard:block/white_poplar_pressure_plate" },
+        "powered=true": { "model": "midgard:block/white_poplar_pressure_plate_down" }
+    }
+}

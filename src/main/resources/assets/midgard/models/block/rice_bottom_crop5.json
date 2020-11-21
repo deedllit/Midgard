@@ -1,0 +1,6 @@
+{
+	"parent" : "block/crop",
+	"textures" : {
+		"crop" : "midgard:blocks/rice_bottom_crop_stage5"
+	}
+}

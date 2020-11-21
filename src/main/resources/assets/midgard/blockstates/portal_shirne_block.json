@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "midgard:block/portal_shirne_block" },
+        "facing=south": { "model": "midgard:block/portal_shirne_block", "y": 180 },
+        "facing=west":  { "model": "midgard:block/portal_shirne_block", "y": 270 },
+        "facing=east":  { "model": "midgard:block/portal_shirne_block", "y": 90 }
+    }
+}

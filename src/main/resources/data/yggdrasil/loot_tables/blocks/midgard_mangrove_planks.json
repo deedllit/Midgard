@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "yggdrasil:midgard_mangrove_logs"
+    }
+  ],
+  "result": {
+    "item": "yggdrasil:midgard_mangrove_planks",
+    "count": 4
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "midgard:block/ixia_viridiflora_teal_bottom"
+    },
+    "half=upper": {
+      "model": "midgard:block/ixia_viridiflora_teal_top"
+    }
+  }
+}

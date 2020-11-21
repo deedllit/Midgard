@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "midgard:block/pistia_water_lettuce" },
+            { "model": "midgard:block/pistia_water_lettuce", "y": 90 },
+            { "model": "midgard:block/pistia_water_lettuce", "y": 180 },
+            { "model": "midgard:block/pistia_water_lettuce", "y": 270 }
+        ]
+    }
+}

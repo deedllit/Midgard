@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "midgard:blocks/elm_planks",
+        "top": "midgard:blocks/elm_planks",
+        "side": "midgard:blocks/elm_planks"
+    }
+}

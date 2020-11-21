@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "midgard:blocks/pink_quartz_pillar_top",
+        "side": "midgard:blocks/pink_quartz_pillar"
+    }
+}

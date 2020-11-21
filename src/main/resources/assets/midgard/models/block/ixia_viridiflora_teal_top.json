@@ -1,0 +1,6 @@
+{
+	"parent" : "block/cross",
+	"textures" : {
+		"cross" : "midgard:blocks/ixia_viridiflora_teal_top"
+	}
+}

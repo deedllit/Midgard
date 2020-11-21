@@ -1,0 +1,6 @@
+{
+	"parent" : "block/cross",
+	"textures" : {
+		"cross" : "midgard:blocks/midgard_orange_pomelia_bush_top"
+	}
+}

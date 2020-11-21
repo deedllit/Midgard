@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "midgard:blocks/white_poplar_planks",
+        "top": "midgard:blocks/white_poplar_planks",
+        "side": "midgard:blocks/white_poplar_planks"
+    }
+}

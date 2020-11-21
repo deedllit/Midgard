@@ -1,0 +1,70 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"0": "midgard:blocks/vanafreintine_block",
+		"1": "block/stone",
+		"particle": "midgard:blocks/vanafreintine_block"
+	},
+	"elements": [
+		{
+			"from": [7, 0, 5],
+			"to": [9, 3, 11],
+			"color": 1,
+			"faces": {
+				"north": {"uv": [0, 0, 2, 3], "texture": "#1"},
+				"east": {"uv": [0, 0, 6, 3], "texture": "#1"},
+				"south": {"uv": [0, 0, 2, 3], "texture": "#1"},
+				"west": {"uv": [0, 0, 6, 3], "texture": "#1"},
+				"up": {"uv": [0, 0, 2, 6], "texture": "#1"},
+				"down": {"uv": [0, 0, 2, 6], "texture": "#1"}
+			}
+		},
+		{
+			"from": [6, 3, 2],
+			"to": [10, 4, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [15, 8, 16]},
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 4, 1], "texture": "#0"},
+				"east": {"uv": [0, 0, 11, 1], "texture": "#0"},
+				"south": {"uv": [0, 0, 4, 1], "texture": "#0"},
+				"west": {"uv": [0, 0, 11, 1], "texture": "#0"},
+				"up": {"uv": [0, 0, 4, 11], "texture": "#0"},
+				"down": {"uv": [0, 0, 4, 11], "texture": "#0"}
+			}
+		},
+		{
+			"from": [6, 4, 12],
+			"to": [10, 12, 13],
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 4, 8], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 8], "texture": "#0"},
+				"south": {"uv": [0, 0, 4, 8], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 8], "texture": "#0"},
+				"up": {"uv": [0, 0, 4, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 4, 1], "texture": "#0"}
+			}
+		},
+		{
+			"from": [6, 4, 2],
+			"to": [10, 12, 3],
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 4, 8], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 8], "texture": "#0"},
+				"south": {"uv": [0, 0, 4, 8], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 8], "texture": "#0"},
+				"up": {"uv": [0, 0, 4, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 4, 1], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "VoxelShapes",
+			"origin": [8, 8, 8],
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

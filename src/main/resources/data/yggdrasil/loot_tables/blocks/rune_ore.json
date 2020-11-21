@@ -1,0 +1,106 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_first_aitt_fehu"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_first_aitt_uruz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_first_aitt_thurisaz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_first_aitt_ansuz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_first_aitt_raido"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_first_aitt_kenaz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_first_aitt_gebo"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_first_aitt_wunjo"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_second_aitt_hagalaz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_second_aitt_nauthiz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_second_aitt_isa"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_second_aitt_jera"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_second_aitt_eihwaz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_second_aitt_perthro"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_second_aitt_algiz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_second_aitt_sowilo"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_third_aitt_tiwaz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_third_aitt_berkana"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_third_aitt_ehwaz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_third_aitt_mannaz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_third_aitt_laguz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_third_aitt_ingwaz"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_third_aitt_othala"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "yggdrasil:rune_elder_futhark_third_aitt_dagaz"
+        }
+      ]
+    }
+  ]
+}

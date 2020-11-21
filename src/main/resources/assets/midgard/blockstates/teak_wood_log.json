@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "midgard:block/teak_wood_log" },
+        "axis=z":   { "model": "midgard:block/teak_wood_log", "x": 90 },
+        "axis=x":   { "model": "midgard:block/teak_wood_log", "x": 90, "y": 90 }
+    }
+}

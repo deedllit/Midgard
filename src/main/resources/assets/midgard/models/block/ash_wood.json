@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "midgard:blocks/ash_log",
+        "side": "midgard:blocks/ash_log"
+    }
+}

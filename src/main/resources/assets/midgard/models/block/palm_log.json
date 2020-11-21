@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "midgard:blocks/iron_wood_log_top",
+        "side": "midgard:blocks/palm_log"
+    }
+}

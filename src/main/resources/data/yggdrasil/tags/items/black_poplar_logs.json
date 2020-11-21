@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "yggdrasil:black_poplar_log",
+    "yggdrasil:black_poplar_wood",
+    "yggdrasil:stripped_black_poplar_log",
+    "yggdrasil:stripped_black_poplar_wood"
+  ]
+}

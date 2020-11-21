@@ -1,0 +1,6 @@
+{
+	"parent" : "block/cube_all",
+	"textures" : {
+		"all" : "midgard:blocks/midgard_mangrove_planks"
+	}
+}

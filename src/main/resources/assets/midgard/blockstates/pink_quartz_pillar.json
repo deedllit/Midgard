@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "midgard:block/pink_quartz_pillar" },
+        "axis=z":   { "model": "midgard:block/pink_quartz_pillar", "x": 90 },
+        "axis=x":   { "model": "midgard:block/pink_quartz_pillar", "x": 90, "y": 90 }
+    }
+}

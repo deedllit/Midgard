@@ -1,0 +1,6 @@
+{
+    "parent": "block/button_inventory",
+    "textures": {
+        "texture": "midgard:blocks/midgard_mangrove_planks"
+    }
+}

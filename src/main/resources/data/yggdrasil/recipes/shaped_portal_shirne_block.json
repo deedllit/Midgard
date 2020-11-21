@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " Y ",
+    "ZXZ"
+  ],
+  "key": {
+    "X": {
+      "item": "yggdrasil:vanafreintine_block"
+    },    
+    "Y": {
+      "item": "minecraft:tripwire_hook"
+    },    
+    "Z": {
+      "item": "minecraft:glowstone_dust"
+    }  
+    
+  },
+  "result": {
+    "item": "yggdrasil:portal_shirne_block"
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "midgard:block/ash_log" },
+        "axis=z":   { "model": "midgard:block/ash_log", "x": 90 },
+        "axis=x":   { "model": "midgard:block/ash_log", "x": 90, "y": 90 }
+    }
+}

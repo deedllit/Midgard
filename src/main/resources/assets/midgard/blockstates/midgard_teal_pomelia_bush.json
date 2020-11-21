@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "midgard:block/midgard_teal_pomelia_bush_bottom"
+    },
+    "half=upper": {
+      "model": "midgard:block/midgard_teal_pomelia_bush_top"
+    }
+  }
+}
