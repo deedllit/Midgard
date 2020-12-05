@@ -1,7 +1,9 @@
 {
 	"replace": false,
 	"values": [
-		"yggdrasil:ash_fence",
-		"yggdrasil:elm_fence"
+		"midgard:ash_fence",
+		"midgard:blue_spruce_fence",
+		"midgard:elm_fence",
+		"midgard:norway_spruce_fence"
 	]
 }

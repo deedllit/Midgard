@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "midgard:blue_spruce_log",
+    "midgard:blue_spruce_wood",
+    "midgard:stripped_blue_spruce_log",
+    "midgard:stripped_blue_spruce_wood"
+  ]
+}

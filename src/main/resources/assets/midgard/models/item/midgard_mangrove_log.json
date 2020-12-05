@@ -1,6 +1,3 @@
 {
-	"parent" : "block/cube_all",
-	"textures" : {
-		"all" : "midgard:blocks/midgard_mangrove_log"
-	}
+	"parent": "midgard:block/midgard_mangrove_log"
 }

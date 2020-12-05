@@ -6,10 +6,7 @@ import com.deedllit.midgard.Midgard;
 import com.deedllit.midgard.init.BlockInit;
 import com.deedllit.mythologycraft.common.block.MidgardAirTopCropsBlock;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CropsBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.util.Direction;
@@ -40,6 +37,9 @@ public class RiceTopCropBlock extends MidgardAirTopCropsBlock {
 	@Override
 	public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing,
 			IPlantable plantable) {
+		
+		Midgard.LOGGER.info("RiceTopCropBlock canSustainPlant - " + world.getBlockState(pos))  ;
+		
 		return super.canSustainPlant(state, world, pos, facing, plantable);
 	}
 	

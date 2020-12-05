@@ -1,10 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"yggdrasil:iron_wood_leaves",
-		"yggdrasil:palm_leaves",		
-		"yggdrasil:muspelheim_epluphifer_leaves",
-		"yggdrasil:yggdrasil_tree_leaves",
-		"midgard_mangrove_leaves"
+		"midgard:blue_spruce_leaves",		
+		"midgard:iron_wood_leaves",
+		"midgard:palm_leaves",		
+		"midgard:norway_spruce_leaves",		
+		"midgard:midgard_mangrove_leaves"
 	]
 }

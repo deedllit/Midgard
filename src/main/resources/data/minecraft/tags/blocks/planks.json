@@ -1,11 +1,13 @@
 {
   "replace": false,
   "values": [
-    "yggdrasil:ash_planks",
-    "yggdrasil:black_poplar_planks",
-    "yggdrasil:elm_planks",
-    "yggdrasil:midgard_mangrove_planks",
-    "yggdrasil:muspelheim_epluphifer_planks",
-    "yggdrasil:white_poplar_planks"
+    "midgard:ash_planks",
+    "midgard:black_poplar_planks",
+    "midgard:blue_spruce_planks",
+    "midgard:elm_planks",
+    "midgard:midgard_mangrove_planks",
+    "midgard:muspelheim_epluphifer_planks",
+    "midgard:norway_spruce_planks",
+    "midgard:white_poplar_planks"
   ]
 }

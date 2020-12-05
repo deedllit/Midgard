@@ -5,7 +5,7 @@ import java.util.Locale;
 import com.deedllit.midgard.Midgard;
 import com.deedllit.midgard.core.world.gen.feature.crop.RiceFeature;
 import com.deedllit.midgard.core.world.gen.feature.crop.RiceFeatureConfig;
-import com.deedllit.midgard.core.world.gen.feature.tree.MidgardBasicTreeFeature;
+import com.deedllit.midgard.core.world.gen.feature.tree.*;
 import com.deedllit.midgard.world.feature.asgard.features.*;
 import com.deedllit.midgard.world.feature.midgard.features.*;
 import com.deedllit.midgard.world.feature.midgard.structures.*;
@@ -29,6 +29,28 @@ public class FeatureInit {
 	public static Feature<BaseTreeFeatureConfig> TEST =
 			new MidgardBasicTreeFeature.Builder().log(Blocks.ACACIA_LOG.getDefaultState()).leaves(Blocks.ACACIA_LEAVES.getDefaultState()).create() ;  
 
+	public static Feature<BaseTreeFeatureConfig> BLUE_SPRUCE_SMALL =
+			new MidgardTaigaTreeFeature.Builder()
+				.log(BlockInit.BLUE_SPRUCE_LOG.get().getDefaultState())
+				.leaves(BlockInit.BLUE_SPRUCE_LEAVES.get().getDefaultState())
+				.create() ;  
+			
+	public static Feature<BaseTreeFeatureConfig> BLUE_SPRUCE_MEDIUM =
+			new MidgardTaigaTreeFeature.Builder()
+				.log(BlockInit.BLUE_SPRUCE_LOG.get().getDefaultState())
+				.leaves(BlockInit.BLUE_SPRUCE_LEAVES.get().getDefaultState())
+				.minSize(10)
+				.maxSize(16)
+				.create() ;  
+
+	public static Feature<BaseTreeFeatureConfig> BLUE_SPRUCE_GIANT =
+			new MidgardTaigaTreeFeature.Builder()
+				.log(BlockInit.BLUE_SPRUCE_LOG.get().getDefaultState())
+				.leaves(BlockInit.BLUE_SPRUCE_LEAVES.get().getDefaultState())
+				.minSize(16)
+				.maxSize(22)
+				.create() ;  
+
 	
 	/*
 	 * ASGARD
@@ -40,6 +62,9 @@ public class FeatureInit {
 	/*
 	 * MIDGARD
 	 */	
+	
+	
+	
 	public static Feature<RiceFeatureConfig> RICE = new RiceFeature(RiceFeatureConfig::deserialize);
 
 	public static Feature<NoFeatureConfig> MIDGARD_GOLD_WELL = new MidgardGoldWeelsFeature(NoFeatureConfig::deserialize) ; 

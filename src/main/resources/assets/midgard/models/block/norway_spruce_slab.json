@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "midgard:blocks/norway_spruce_planks",
+        "top": "midgard:blocks/norway_spruce_planks",
+        "side": "midgard:blocks/norway_spruce_planks"
+    }
+}

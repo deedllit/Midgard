@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_post",
+    "textures": {
+        "texture": "midgard:blocks/norway_spruce_planks"
+    }
+}

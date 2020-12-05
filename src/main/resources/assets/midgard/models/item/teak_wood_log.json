@@ -1,6 +1,3 @@
 {
-	"parent" : "block/cube_all",
-	"textures" : {
-		"all" : "midgard:blocks/teak_wood_log"
-	}
+	"parent": "midgard:block/teak_wood_log"
 }

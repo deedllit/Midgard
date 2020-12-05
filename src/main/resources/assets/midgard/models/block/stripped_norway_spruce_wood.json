@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "midgard:block/stripped_norway_spruce_log",
+        "side": "midgard:block/stripped_norway_spruce_log"
+    }
+}

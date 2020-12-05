@@ -1,13 +1,13 @@
 {
 	"replace": false,
 	"values": [
-		"yggdrasil:ash_log",
-		"yggdrasil:elm_log",
-		"yggdrasil:green_palm_log",
-		"yggdrasil:palm_log",
-		"yggdrasil:iron_wood_log",
-		"yggdrasil:midgard_mangrove_log",
-		"yggdrasil:muspelheim_epluphifer_log",
-		"yggdrasil:muspelheim_epluphifer_sick_log"
+		"midgard:ash_log",
+		"midgard:blue_spruce_log",
+		"midgard:elm_log",
+		"midgard:green_palm_log",
+		"midgard:palm_log",
+		"midgard:iron_wood_log",
+		"midgard:midgard_mangrove_log",
+		"midgard:norway_spruce_log"
 	]
 }

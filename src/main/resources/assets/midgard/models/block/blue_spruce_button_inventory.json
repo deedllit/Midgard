@@ -1,0 +1,6 @@
+{
+    "parent": "block/button_inventory",
+    "textures": {
+        "texture": "midgard:blocks/blue_spruce_planks"
+    }
+}

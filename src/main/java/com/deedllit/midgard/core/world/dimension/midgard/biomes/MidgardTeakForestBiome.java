@@ -2,6 +2,7 @@ package com.deedllit.midgard.core.world.dimension.midgard.biomes;
 
 import com.deedllit.midgard.api.enums.MidgardClimate;
 import com.deedllit.midgard.core.world.biome.MidgardBiome;
+import com.deedllit.midgard.core.world.dimension.midgard.config.MidgardDefaultBiomeFeatures;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -22,7 +23,11 @@ public class MidgardTeakForestBiome extends MidgardBiome {
 		  	.waterFogColor(2302743)
 		  	.parent((String)null));
 	      
-		    this.addWeight( MidgardClimate.TROPICAL,1);
+	      
+	      MidgardDefaultBiomeFeatures.addDenseBlueSpruce(this);
+	      
+
+	      this.addWeight( MidgardClimate.TROPICAL,1);
 
 
 		}

@@ -13,6 +13,7 @@ import com.google.common.collect.Lists;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.blockplacer.ColumnBlockPlacer;
@@ -101,7 +102,8 @@ public class MidgardDefaultBiomeFeatures {
     public static final BlockClusterFeatureConfig RAINBOW_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder(new MidgardRainbowFlowerBlockStateProvider(), new SimpleBlockPlacer())).tries(64).build();
     
     //public static final BaseTreeFeatureConfig BANYAN_TREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(OAK_LOG), new SimpleBlockStateProvider(OAK_LEAVES), new BlobFoliagePlacer(8, 0, 4, 0, 5), new StraightTrunkPlacer(4, 8, 3), new TwoLayerFeature(1, 1, 2))).func_236701_a_(1).func_236703_a_(ImmutableList.of(LeaveVineTreeDecorator.field_236871_b_)).build();
-
+    
+    
     public static final TreeFeatureConfig FANCY_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(OAK_LOG), new SimpleBlockStateProvider(OAK_LEAVES), new BlobFoliagePlacer(0, 0))).setSapling((net.minecraftforge.common.IPlantable)Blocks.OAK_SAPLING).build();
     public static final HugeTreeFeatureConfig MEGA_JUNGLE_TREE_CONFIG = (new HugeTreeFeatureConfig.Builder(new SimpleBlockStateProvider(JUNGLE_LOG), new SimpleBlockStateProvider(JUNGLE_LEAVES))).baseHeight(10).heightInterval(20).decorators(ImmutableList.of(new TrunkVineTreeDecorator(), new LeaveVineTreeDecorator())).setSapling((net.minecraftforge.common.IPlantable)Blocks.JUNGLE_SAPLING).build();
     public static final BaseTreeFeatureConfig JUNGLE_GROUND_BUSH_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(JUNGLE_LOG), new SimpleBlockStateProvider(OAK_LEAVES))).baseHeight(4).setSapling((net.minecraftforge.common.IPlantable)Blocks.JUNGLE_SAPLING).build();
@@ -210,6 +212,23 @@ public class MidgardDefaultBiomeFeatures {
 
 	public static void addMoutainsFlower(Biome biomeIn) {
 	    biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BISTORT_PINK_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));		
+	}
+	
+	public static void addDenseBlueSpruce(Biome biomeIn) {
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.BLUE_SPRUCE_GIANT.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+	      
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.BLUE_SPRUCE_MEDIUM.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1))));
+
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.BLUE_SPRUCE_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(4, 0.1F, 1))));
 	}
 	
 	public static void addDenseGrass(Biome biomeIn) {

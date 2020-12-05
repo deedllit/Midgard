@@ -1,6 +1,3 @@
 {
-	"parent" : "block/cube_all",
-	"textures" : {
-		"all" : "midgard:blocks/black_poplar_log"
-	}
+	"parent": "midgard:block/black_poplar_log"
 }

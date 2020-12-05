@@ -1,6 +1,3 @@
 {
-	"parent" : "block/cube_all",
-	"textures" : {
-		"all" : "midgard:blocks/palm_log"
-	}
+	"parent": "midgard:block/palm_log"
 }

@@ -1,6 +1,3 @@
 {
-	"parent" : "block/cube_all",
-	"textures" : {
-		"all" : "midgard:blocks/elm_log"
-	}
+	"parent": "midgard:block/elm_log"
 }

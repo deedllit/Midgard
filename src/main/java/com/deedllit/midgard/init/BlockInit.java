@@ -6,6 +6,7 @@ import com.deedllit.midgard.common.block.midgard.*;
 import com.deedllit.midgard.common.objects.blocks.PedestalItemBlock;
 import com.deedllit.midgard.core.block.MidgardSeaGrassBlock;
 import com.deedllit.midgard.init.objects.blocks.*;
+import com.deedllit.midgard.world.feature.midgard.features.BlueSpruceTree;
 import com.deedllit.midgard.world.feature.midgard.trees.*;
 
 import net.minecraft.block.PressurePlateBlock.Sensitivity;
@@ -43,10 +44,10 @@ public class BlockInit {
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(2.0F).sound(SoundType.STONE)));
 
 	public static final RegistryObject<Block> COPPER_BARS = BLOCKS.register("copper_bars",
-			() -> new YggdrasilPaneBlock(Block.Properties.create(Material.IRON, MaterialColor.AIR).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid()));
+			() -> new MidgardPaneBlock(Block.Properties.create(Material.IRON, MaterialColor.AIR).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid()));
 	
 	public static final RegistryObject<Block> LEAD_BARS = BLOCKS.register("lead_bars",
-			() -> new YggdrasilPaneBlock(Block.Properties.create(Material.IRON, MaterialColor.AIR).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid()));
+			() -> new MidgardPaneBlock(Block.Properties.create(Material.IRON, MaterialColor.AIR).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid()));
 
 	public static final RegistryObject<Block> PINK_QUARTZ_ORE = BLOCKS.register("pink_quartz_ore",
 			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(0.8F).sound(SoundType.STONE)));
@@ -162,6 +163,86 @@ public class BlockInit {
 	public static final RegistryObject<Block> SMOOTH_GREEN_QUARTZ_SLAB = BLOCKS.register("smooth_green_quartz_slab",
 			() -> new SlabBlock(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(2.0F, 6.0F)));
 	
+	
+	//BLUE_SPRUCE TREE
+
+	public static final RegistryObject<Block> BLUE_SPRUCE_LOG = BLOCKS.register("blue_spruce_log",
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+	
+	public static final RegistryObject<Block> STRIPPED_BLUE_SPRUCE_LOG = BLOCKS.register("stripped_blue_spruce_log",
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+
+	public static final RegistryObject<Block> BLUE_SPRUCE_WOOD = BLOCKS.register("blue_spruce_wood",
+			() -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+
+	public static final RegistryObject<Block> STRIPPED_BLUE_SPRUCE_WOOD = BLOCKS.register("stripped_blue_spruce_wood",
+			() -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+
+	public static final RegistryObject<Block> BLUE_SPRUCE_PLANKS = BLOCKS.register("blue_spruce_planks",
+			() -> new Block(Block.Properties.from(Blocks.DARK_OAK_PLANKS)));
+
+	public static final RegistryObject<Block> BLUE_SPRUCE_STAIRS = BLOCKS.register("blue_spruce_stairs",
+			() -> new StairsBlock(() -> BlockInit.BLUE_SPRUCE_PLANKS.get().getDefaultState(),
+					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+
+	public static final RegistryObject<Block> BLUE_SPRUCE_FENCE = BLOCKS.register("blue_spruce_fence",
+			() -> new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+	
+	public static final RegistryObject<Block> BLUE_SPRUCE_FENCE_GATE = BLOCKS.register("blue_spruce_fence_gate",
+			() -> new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+
+	public static final RegistryObject<Block> BLUE_SPRUCE_BUTTON = BLOCKS.register("blue_spruce_button",
+			() -> new MidgardWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+	
+	public static final RegistryObject<Block> BLUE_SPRUCE_PRESSURE_PLATE = BLOCKS.register("blue_spruce_pressure_plate",
+			() -> new MidgardPressurePlateBlock(Sensitivity.EVERYTHING,
+					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+					
+	public static final RegistryObject<Block> BLUE_SPRUCE_LEAVES = BLOCKS.register("blue_spruce_leaves",
+			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
+
+	public static final RegistryObject<Block> BLUE_SPRUCE_SAPLING = BLOCKS.register("blue_spruce_sapling",
+			() -> new MidgardSaplingBlock(new BlueSpruceTree(),  Block.Properties.from(Blocks.OAK_SAPLING)));
+
+						
+	
+	//NORWAY_SPRUCE TREE
+
+	public static final RegistryObject<Block> NORWAY_SPRUCE_LOG = BLOCKS.register("norway_spruce_log",
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+	
+	public static final RegistryObject<Block> STRIPPED_NORWAY_SPRUCE_LOG = BLOCKS.register("stripped_norway_spruce_log",
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+
+	public static final RegistryObject<Block> NORWAY_SPRUCE_WOOD = BLOCKS.register("norway_spruce_wood",
+			() -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+
+	public static final RegistryObject<Block> STRIPPED_NORWAY_SPRUCE_WOOD = BLOCKS.register("stripped_norway_spruce_wood",
+			() -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+
+	public static final RegistryObject<Block> NORWAY_SPRUCE_PLANKS = BLOCKS.register("norway_spruce_planks",
+			() -> new Block(Block.Properties.from(Blocks.DARK_OAK_PLANKS)));
+
+	public static final RegistryObject<Block> NORWAY_SPRUCE_STAIRS = BLOCKS.register("norway_spruce_stairs",
+			() -> new StairsBlock(() -> BlockInit.NORWAY_SPRUCE_PLANKS.get().getDefaultState(),
+					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+
+	public static final RegistryObject<Block> NORWAY_SPRUCE_FENCE = BLOCKS.register("norway_spruce_fence",
+			() -> new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+	
+	public static final RegistryObject<Block> NORWAY_SPRUCE_FENCE_GATE = BLOCKS.register("norway_spruce_fence_gate",
+			() -> new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+
+	public static final RegistryObject<Block> NORWAY_SPRUCE_BUTTON = BLOCKS.register("norway_spruce_button",
+			() -> new MidgardWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+	
+	public static final RegistryObject<Block> NORWAY_SPRUCE_PRESSURE_PLATE = BLOCKS.register("norway_spruce_pressure_plate",
+			() -> new MidgardPressurePlateBlock(Sensitivity.EVERYTHING,
+					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+					
+	public static final RegistryObject<Block> NORWAY_SPRUCE_LEAVES = BLOCKS.register("norway_spruce_leaves",
+			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
+	
 	//ELM TREE
 	
 	public static final RegistryObject<Block> ELM_LOG = BLOCKS.register("elm_log",
@@ -190,10 +271,10 @@ public class BlockInit {
 			() -> new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 
 	public static final RegistryObject<Block> ELM_BUTTON = BLOCKS.register("elm_button",
-			() -> new YggdrasilWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+			() -> new MidgardWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 	
 	public static final RegistryObject<Block> ELM_PRESSURE_PLATE = BLOCKS.register("elm_pressure_plate",
-			() -> new YggdrasilPressurePlateBlock(Sensitivity.EVERYTHING,
+			() -> new MidgardPressurePlateBlock(Sensitivity.EVERYTHING,
 					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 		
 	//ASH TREE
@@ -224,10 +305,10 @@ public class BlockInit {
 			() -> new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 
 	public static final RegistryObject<Block> ASH_BUTTON = BLOCKS.register("ash_button",
-			() -> new YggdrasilWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+			() -> new MidgardWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 	
 	public static final RegistryObject<Block> ASH_PRESSURE_PLATE = BLOCKS.register("ash_pressure_plate",
-			() -> new YggdrasilPressurePlateBlock(Sensitivity.EVERYTHING,
+			() -> new MidgardPressurePlateBlock(Sensitivity.EVERYTHING,
 					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 	
 	//COCO NUT
@@ -267,10 +348,10 @@ public class BlockInit {
 			() -> new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 
 	public static final RegistryObject<Block> WHITE_POPLAR_BUTTON = BLOCKS.register("white_poplar_button",
-			() -> new YggdrasilWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+			() -> new MidgardWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 	
 	public static final RegistryObject<Block> WHITE_POPLAR_PRESSURE_PLATE = BLOCKS.register("white_poplar_pressure_plate",
-			() -> new YggdrasilPressurePlateBlock(Sensitivity.EVERYTHING,
+			() -> new MidgardPressurePlateBlock(Sensitivity.EVERYTHING,
 					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 	
 	//BLACK POPLAR
@@ -300,10 +381,10 @@ public class BlockInit {
 			() -> new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 
 	public static final RegistryObject<Block> BLACK_POPLAR_BUTTON = BLOCKS.register("black_poplar_button",
-			() -> new YggdrasilWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+			() -> new MidgardWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 	
 	public static final RegistryObject<Block> BLACK_POPLAR_PRESSURE_PLATE = BLOCKS.register("black_poplar_pressure_plate",
-			() -> new YggdrasilPressurePlateBlock(Sensitivity.EVERYTHING,
+			() -> new MidgardPressurePlateBlock(Sensitivity.EVERYTHING,
 					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 	
 	
@@ -335,10 +416,10 @@ public class BlockInit {
 			() -> new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 
 	public static final RegistryObject<Block> MIDGARD_MANGROVE_BUTTON = BLOCKS.register("midgard_mangrove_button",
-			() -> new YggdrasilWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+			() -> new MidgardWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 	
 	public static final RegistryObject<Block> MIDGARD_MANGROVE_PRESSURE_PLATE = BLOCKS.register("midgard_mangrove_pressure_plate",
-			() -> new YggdrasilPressurePlateBlock(Sensitivity.EVERYTHING,
+			() -> new MidgardPressurePlateBlock(Sensitivity.EVERYTHING,
 					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 	
 	public static final RegistryObject<Block> MIDGARD_MANGROVE_LEAVES = BLOCKS.register("midgard_mangrove_leaves",
@@ -393,56 +474,56 @@ public class BlockInit {
 			() -> new TallFlowerBlock(Block.Properties.from(Blocks.SUNFLOWER)));
 
 	public static final RegistryObject<Block> SWEET_PEA = BLOCKS.register("sweet_pea",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.FIRE_RESISTANCE, 20, Block.Properties.from(Blocks.ALLIUM))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.FIRE_RESISTANCE, 20, Block.Properties.from(Blocks.ALLIUM))) ;
 
 	public static final RegistryObject<Block> CHARDON = BLOCKS.register("chardon",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 1, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 1, Block.Properties.from(Blocks.POPPY))) ;
 	
 	public static final RegistryObject<Block> FUCHSIA_BISTORT = BLOCKS.register("fuchsia_bistort",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 1, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 1, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> PINK_BISTORT = BLOCKS.register("pink_bistort",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 1, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 1, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> GUZMANIA_RED = BLOCKS.register("guzmania_red",
-			() -> new YggdrasilFlowerBlock(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND}, Effects.REGENERATION, 1, Block.Properties.from(Blocks.ALLIUM))) ;
+			() -> new MidgardFlowerBlock(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND}, Effects.REGENERATION, 1, Block.Properties.from(Blocks.ALLIUM))) ;
 
 	public static final RegistryObject<Block> KANGAROO_PAW_PINK = BLOCKS.register("kangaroo_paw_pink",
-			() -> new YggdrasilFlowerBlock(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND}, Effects.REGENERATION, 1, Block.Properties.from(Blocks.ALLIUM))) ;
+			() -> new MidgardFlowerBlock(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND}, Effects.REGENERATION, 1, Block.Properties.from(Blocks.ALLIUM))) ;
 
 	public static final RegistryObject<Block> KANGAROO_PAW_ORANGE = BLOCKS.register("kangaroo_paw_orange",
-			() -> new YggdrasilFlowerBlock(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND}, Effects.REGENERATION, 1, Block.Properties.from(Blocks.ALLIUM))) ;
+			() -> new MidgardFlowerBlock(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND}, Effects.REGENERATION, 1, Block.Properties.from(Blocks.ALLIUM))) ;
 
 	public static final RegistryObject<Block> GUZMANIA_PINK = BLOCKS.register("guzmania_pink",
-			() -> new YggdrasilFlowerBlock(PlantType.Desert,new Block[] {Blocks.SAND, Blocks.RED_SAND}, Effects.REGENERATION, 1, Block.Properties.from(Blocks.ALLIUM))) ;
+			() -> new MidgardFlowerBlock(PlantType.Desert,new Block[] {Blocks.SAND, Blocks.RED_SAND}, Effects.REGENERATION, 1, Block.Properties.from(Blocks.ALLIUM))) ;
 	
 	public static final RegistryObject<Block> FISH_HOOK = BLOCKS.register("fish_hook",
-			() -> new YggdrasilFlowerBlock(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND}, Effects.REGENERATION, 1, Block.Properties.from(Blocks.ALLIUM))) ;
+			() -> new MidgardFlowerBlock(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND}, Effects.REGENERATION, 1, Block.Properties.from(Blocks.ALLIUM))) ;
 	
 	
 	public static final RegistryObject<Block> FIRELILY = BLOCKS.register("firelily",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 2, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> LAVENDER = BLOCKS.register("lavender",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 2, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> ALPINE_BETONY = BLOCKS.register("alpine_betony",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 2, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> PINK_CALLUNA = BLOCKS.register("pink_calluna",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 2, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> EDELWEISS = BLOCKS.register("edelweiss",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.REGENERATION, 2, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> WHITE_WOLFS_BANE = BLOCKS.register("white_wolfs_bane",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> YELLOW_WOLFS_BANE = BLOCKS.register("yellow_wolfs_bane",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> PURPLE_WOLFS_BANE = BLOCKS.register("purple_wolfs_bane",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> DESERT_GRASS = BLOCKS.register("desert_grass",
 			() -> new YggdrasilGrass(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND} , Block.Properties.from(Blocks.GRASS))) ;
@@ -454,22 +535,22 @@ public class BlockInit {
 			() -> new YggdrasilGrass(PlantType.Desert, new Block[] {Blocks.SAND, Blocks.RED_SAND} , Block.Properties.from(Blocks.GRASS))) ;
 	
 	public static final RegistryObject<Block> HYACINTH_BLUE = BLOCKS.register("hyacinth_blue",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
 
 	public static final RegistryObject<Block> HYACINTH_ORANGE = BLOCKS.register("hyacinth_orange",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
 	
 	public static final RegistryObject<Block> HYACINTH_PINK = BLOCKS.register("hyacinth_pink",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
 	
 	public static final RegistryObject<Block> HYACINTH_RED = BLOCKS.register("hyacinth_red",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
 	
 	public static final RegistryObject<Block> HYACINTH_WHITE = BLOCKS.register("hyacinth_white",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
 	
 	public static final RegistryObject<Block> HYACINTH_YELLOW = BLOCKS.register("hyacinth_yellow",
-			() -> new YggdrasilFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
+			() -> new MidgardFlowerBlock(PlantType.Plains, Blocks.GRASS, Effects.POISON, 2, Block.Properties.from(Blocks.POPPY))) ;
 	
 		
 	public static final RegistryObject<Block> WHITE_SAND = BLOCKS.register("white_sand", 
@@ -489,7 +570,7 @@ public class BlockInit {
 			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0F).sound(SoundType.STONE)));
 
 	public static final RegistryObject<Block> SULFUR_CRYSTAL = BLOCKS.register("sulfur_crystal",
-			() -> new YggdrasilSulfurCrystal(Block.Properties.from(Blocks.STONE))) ;
+			() -> new MidgardSulfurCrystal(Block.Properties.from(Blocks.STONE))) ;
 
 
 	

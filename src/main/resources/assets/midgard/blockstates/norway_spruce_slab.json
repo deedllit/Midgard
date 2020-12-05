@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "midgard:block/norway_spruce_slab" },
+        "type=top": { "model": "midgard:block/norway_spruce_slab_top" },
+        "type=double": { "model": "midgard:block/norway_spruce_planks" }
+    }
+}
