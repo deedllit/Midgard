@@ -35,7 +35,7 @@
                   ]
                 }
               ],
-              "name": "yggdrasil:green_palm_leaves"
+              "name": "midgard:green_palm_leaves"
             },
             {
               "type": "minecraft:item",
@@ -54,7 +54,7 @@
                   ]
                 }
               ],
-              "name": "yggdrasil:green_palm_sapling"
+              "name": "midgard:green_palm_sapling"
             }
           ]
         }

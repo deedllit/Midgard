@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "midgard:green_palm_logs"
+    }
+  ],
+  "result": {
+    "item": "midgard:green_palm_planks",
+    "count": 4
+  }
+}

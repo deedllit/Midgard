@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "midgard:norway_spruce_logs"
+    }
+  ],
+  "result": {
+    "item": "midgard:norway_spruce_planks",
+    "count": 4
+  }
+}

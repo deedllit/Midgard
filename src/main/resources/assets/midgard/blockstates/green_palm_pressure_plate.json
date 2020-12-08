@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "midgard:block/green_palm_pressure_plate" },
+        "powered=true": { "model": "midgard:block/green_palm_pressure_plate_down" }
+    }
+}

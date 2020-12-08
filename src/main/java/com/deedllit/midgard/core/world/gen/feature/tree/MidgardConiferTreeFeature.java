@@ -18,15 +18,15 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
 
-public class MidgardTaigaTreeFeature extends MidgardAbstractTreeFeature {
+public class MidgardConiferTreeFeature extends MidgardAbstractTreeFeature {
 
-	public static class Builder extends BuilderBase<Builder, MidgardTaigaTreeFeature> {
+	public static class Builder extends BuilderBase<Builder, MidgardConiferTreeFeature> {
 
 		protected int trunkSize = 1;
 		protected boolean increaseTrunk = false;
 
 		public Builder() {
-			this.minSize = 6;
+			this.minSize = 8;
 			this.maxSize = 12;
 			this.log = Blocks.SPRUCE_LOG.getDefaultState();
 			this.leaves = Blocks.SPRUCE_LEAVES.getDefaultState();
@@ -41,8 +41,8 @@ public class MidgardTaigaTreeFeature extends MidgardAbstractTreeFeature {
 
 		
 		@Override
-		public MidgardTaigaTreeFeature create() {
-			return new MidgardTaigaTreeFeature(placeOn, replace, leaves, log, vine, trunkFruit, minSize, maxSize, trunkSize, increaseTrunk);
+		public MidgardConiferTreeFeature create() {
+			return new MidgardConiferTreeFeature(placeOn, replace, log, leaves, vine, alternativeLeaves, trunkFruit, minSize, maxSize, trunkSize, increaseTrunk);
 		}
 
 	}
@@ -50,9 +50,9 @@ public class MidgardTaigaTreeFeature extends MidgardAbstractTreeFeature {
 	private int trunkSize = 1;
 	private boolean increaseTrunk = false;
 
-	public MidgardTaigaTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState leaves, BlockState log, BlockState vine,
+	public MidgardConiferTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine,
 			BlockState trunkFruit, int minSize, int maxSize, int trunkSize, boolean increaseTrunk) {
-		super(placeOn, replace, leaves, log, vine, trunkFruit, minSize, maxSize);
+		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize);
 		
 		this.increaseTrunk = increaseTrunk ; 
 		this.trunkSize = trunkSize;
@@ -64,7 +64,6 @@ public class MidgardTaigaTreeFeature extends MidgardAbstractTreeFeature {
 			Random rand, BlockPos positionIn, MutableBoundingBox boundingBoxIn) {
 
 		Midgard.LOGGER.info("MidgardTaigaTreeFeature - placeTree");
-
 		int height = RandomHelper.getNextIntBetween(rand, this.minSize, this.maxSize) ; 		
 		int baseHeight  = RandomHelper.getNextIntBetween(rand, height / 5,  height / 3) ; 
 		int leavesHeight = height - baseHeight;
@@ -72,9 +71,14 @@ public class MidgardTaigaTreeFeature extends MidgardAbstractTreeFeature {
 			return false;
 		}
 
+		//Move to ground and check for placement
+		BlockPos posStart = this.moveToGround(world, positionIn);
+        if (!this.placeOn.matches(world, posStart)) {
+            return false;
+        }
+        
 		BlockPos pos ; 
-		
-		pos = positionIn;
+		pos = posStart;
 		
 		for (int y = 0; y < height - 1; y++) {
 			
@@ -100,7 +104,7 @@ public class MidgardTaigaTreeFeature extends MidgardAbstractTreeFeature {
 		
 		
 		//top of the tree to put leaves
-		pos = positionIn.up(height);  
+		pos = posStart.up(height);  
 		this.placeLeaves(world, pos, changedLeaves, boundingBoxIn);
 		pos.down();
 		
@@ -142,6 +146,7 @@ public class MidgardTaigaTreeFeature extends MidgardAbstractTreeFeature {
 
 				
 	}
+
 
 
 	private void generateLeaves(IWorld world, Random rand, BlockPos pos, int radius, int trunkStart, int trunkEnd,

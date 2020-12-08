@@ -52,6 +52,7 @@ public class MidgardTropicalIslandBiome extends MidgardBiome {
 	      DefaultBiomeFeatures.addLakes(this);
 	      DefaultBiomeFeatures.addMonsterRooms(this);
 	      
+	      MidgardDefaultBiomeFeatures.addPalmTree(this);
 	      MidgardDefaultBiomeFeatures.addJungleTrees(this);
 	      MidgardDefaultBiomeFeatures.addTropicalVegetation(this);
 	      MidgardDefaultBiomeFeatures.addExtraTropicalVegetation(this);

@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab_top",
+    "textures": {
+        "bottom": "midgard:blocks/palm_planks",
+        "top": "midgard:blocks/palm_planks",
+        "side": "midgard:blocks/palm_planks"
+    }
+}

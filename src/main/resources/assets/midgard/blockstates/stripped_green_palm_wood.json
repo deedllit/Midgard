@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "midgard:block/stripped_green_palm_wood" },
+        "axis=z":   { "model": "midgard:block/stripped_green_palm_wood", "x": 90 },
+        "axis=x":   { "model": "midgard:block/stripped_green_palm_wood", "x": 90, "y": 90 }
+    }
+}

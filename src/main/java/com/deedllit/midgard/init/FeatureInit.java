@@ -30,13 +30,13 @@ public class FeatureInit {
 			new MidgardBasicTreeFeature.Builder().log(Blocks.ACACIA_LOG.getDefaultState()).leaves(Blocks.ACACIA_LEAVES.getDefaultState()).create() ;  
 
 	public static Feature<BaseTreeFeatureConfig> BLUE_SPRUCE_SMALL =
-			new MidgardTaigaTreeFeature.Builder()
+			new MidgardConiferTreeFeature.Builder()
 				.log(BlockInit.BLUE_SPRUCE_LOG.get().getDefaultState())
 				.leaves(BlockInit.BLUE_SPRUCE_LEAVES.get().getDefaultState())
 				.create() ;  
 			
 	public static Feature<BaseTreeFeatureConfig> BLUE_SPRUCE_MEDIUM =
-			new MidgardTaigaTreeFeature.Builder()
+			new MidgardConiferTreeFeature.Builder()
 				.log(BlockInit.BLUE_SPRUCE_LOG.get().getDefaultState())
 				.leaves(BlockInit.BLUE_SPRUCE_LEAVES.get().getDefaultState())
 				.minSize(10)
@@ -44,13 +44,47 @@ public class FeatureInit {
 				.create() ;  
 
 	public static Feature<BaseTreeFeatureConfig> BLUE_SPRUCE_GIANT =
-			new MidgardTaigaTreeFeature.Builder()
+			new MidgardConiferTreeFeature.Builder()
 				.log(BlockInit.BLUE_SPRUCE_LOG.get().getDefaultState())
 				.leaves(BlockInit.BLUE_SPRUCE_LEAVES.get().getDefaultState())
 				.minSize(16)
 				.maxSize(22)
 				.create() ;  
 
+	
+	public static Feature<BaseTreeFeatureConfig> NORWAY_SPRUCE_SMALL =
+			new MidgardConiferTreeFeature.Builder()
+				.log(BlockInit.NORWAY_SPRUCE_LOG.get().getDefaultState())
+				.leaves(BlockInit.NORWAY_SPRUCE_LEAVES.get().getDefaultState())
+				.create() ;  
+			
+	public static Feature<BaseTreeFeatureConfig> NORWAY_SPRUCE_MEDIUM =
+			new MidgardConiferTreeFeature.Builder()
+				.log(BlockInit.NORWAY_SPRUCE_LOG.get().getDefaultState())
+				.leaves(BlockInit.NORWAY_SPRUCE_LEAVES.get().getDefaultState())
+				.minSize(10)
+				.maxSize(16)
+				.create() ;  
+
+	public static Feature<BaseTreeFeatureConfig> NORWAY_SPRUCE_GIANT =
+			new MidgardConiferTreeFeature.Builder()
+				.log(BlockInit.NORWAY_SPRUCE_LOG.get().getDefaultState())
+				.leaves(BlockInit.NORWAY_SPRUCE_LEAVES.get().getDefaultState())
+				.minSize(16)
+				.maxSize(22)
+				.create() ;  
+
+	public static Feature<BaseTreeFeatureConfig> PLAM_SMALL =
+			new MidgardPalmTreeFeature.Builder()
+				.log(BlockInit.PALM_LOG.get().getDefaultState())
+				.leaves(BlockInit.PALM_LEAVES.get().getDefaultState())
+				.create() ;  
+	
+	public static Feature<BaseTreeFeatureConfig> GREEN_PLAM_SMALL =
+			new MidgardPalmTreeFeature.Builder()
+				.log(BlockInit.GREEN_PALM_LOG.get().getDefaultState())
+				.leaves(BlockInit.GREEN_PALM_LEAVES.get().getDefaultState())
+				.create() ;  
 	
 	/*
 	 * ASGARD

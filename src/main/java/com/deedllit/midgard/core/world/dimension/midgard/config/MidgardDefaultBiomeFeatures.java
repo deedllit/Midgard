@@ -110,6 +110,7 @@ public class MidgardDefaultBiomeFeatures {
     public static final TreeFeatureConfig JUNGLE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(JUNGLE_LOG), new SimpleBlockStateProvider(JUNGLE_LEAVES), new BlobFoliagePlacer(2, 0))).baseHeight(4).heightRandA(8).foliageHeight(3).decorators(ImmutableList.of(new CocoaTreeDecorator(0.2F), new TrunkVineTreeDecorator(), new LeaveVineTreeDecorator())).ignoreVines().setSapling((net.minecraftforge.common.IPlantable)Blocks.JUNGLE_SAPLING).build();
     public static final TreeFeatureConfig SWAMP_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(OAK_LOG), new SimpleBlockStateProvider(OAK_LEAVES), new BlobFoliagePlacer(3, 0))).baseHeight(5).heightRandA(3).foliageHeight(3).maxWaterDepth(1).decorators(ImmutableList.of(new LeaveVineTreeDecorator())).setSapling((net.minecraftforge.common.IPlantable)Blocks.OAK_SAPLING).build();
 	public static final TreeFeatureConfig PINE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(SPRUCE_LOG), new SimpleBlockStateProvider(SPRUCE_LEAVES), new PineFoliagePlacer(1, 0))).baseHeight(7).heightRandA(4).trunkTopOffset(1).foliageHeight(3).foliageHeightRandom(1).ignoreVines().setSapling((net.minecraftforge.common.IPlantable)Blocks.SPRUCE_SAPLING).build();
+	
 	public static final TreeFeatureConfig SPRUCE_TREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(SPRUCE_LOG), new SimpleBlockStateProvider(SPRUCE_LEAVES), new SpruceFoliagePlacer(2, 1))).baseHeight(6).heightRandA(3).trunkHeight(1).trunkHeightRandom(1).trunkTopOffsetRandom(2).ignoreVines().setSapling((net.minecraftforge.common.IPlantable)Blocks.SPRUCE_SAPLING).build();
 
 	//public static final BlockClusterFeatureConfig RICE_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(RICE), SimpleBlockPlacer.field_236447_c_)).tries(1).build();
@@ -212,6 +213,25 @@ public class MidgardDefaultBiomeFeatures {
 
 	public static void addMoutainsFlower(Biome biomeIn) {
 	    biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BISTORT_PINK_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));		
+	}
+	
+	
+	public static void addMixedSpruce(Biome biomeIn) {
+
+	}
+	
+	
+	public static void addPalmTree(Biome biomeIn) {
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.PLAM_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.GREEN_PLAM_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+		
 	}
 	
 	public static void addDenseBlueSpruce(Biome biomeIn) {

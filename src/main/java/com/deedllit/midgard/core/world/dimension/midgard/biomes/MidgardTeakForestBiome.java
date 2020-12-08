@@ -24,7 +24,7 @@ public class MidgardTeakForestBiome extends MidgardBiome {
 		  	.parent((String)null));
 	      
 	      
-	      MidgardDefaultBiomeFeatures.addDenseBlueSpruce(this);
+	      MidgardDefaultBiomeFeatures.addPalmTree(this);
 	      
 
 	      this.addWeight( MidgardClimate.TROPICAL,1);
@@ -35,7 +35,7 @@ public class MidgardTeakForestBiome extends MidgardBiome {
   	@OnlyIn(Dist.CLIENT)
 	public int getGrassColor(double posX, double posZ) {
 		double d0 = INFO_NOISE.noiseAt(posX * 0.0225D, posZ * 0.0225D, false);
-	    return d0 < -0.1D ? 10066176 : 10526720;
+	    return d0 < -0.1D ? 10066176 : 9210880;
 
   	}
 

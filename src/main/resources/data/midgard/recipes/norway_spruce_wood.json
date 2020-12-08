@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "midgard:norway_spruce_log"
+    }
+  },
+  "result": {
+    "item": "midgard:norway_spruce_wood",
+    "count": 3
+  }
+}

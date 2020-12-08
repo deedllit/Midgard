@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "yggdrasil:green_palm_sapling"
+          "name": "midgard:green_palm_sapling"
         }
       ],
       "conditions": [

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "midgard:blue_spruce_planks"
+    }
+  },
+  "result": {
+    "item": "midgard:blue_spruce_boat"
+  }
+}

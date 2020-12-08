@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_bottom",
+    "textures": {
+        "bottom": "midgard:blocks/green_palm_door_bottom",
+        "top": "midgard:blocks/green_palm_door_top"
+    }
+}

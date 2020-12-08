@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "///",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "midgard:blue_spruce_logs"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "midgard:blue_spruce_bars",
+    "count": 16
+  }
+}

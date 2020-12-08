@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "yggdrasil:green_palm_planks"
+          "name": "midgard:green_palm_planks"
         }
       ],
       "conditions": [

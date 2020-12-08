@@ -18,7 +18,7 @@ public class MidgardBasicTreeFeature extends MidgardAbstractTreeFeature {
 	public static class Builder extends InnerBuilder<Builder, MidgardBasicTreeFeature> {
         @Override
         public MidgardBasicTreeFeature create() {
-            return new MidgardBasicTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.vine, this.trunkFruit, this.minSize, this.maxSize);
+            return new MidgardBasicTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.alternativeLeaves, this.vine, this.trunkFruit, this.minSize, this.maxSize);
         }
     }
 
@@ -40,9 +40,9 @@ public class MidgardBasicTreeFeature extends MidgardAbstractTreeFeature {
         }
     }
     
-    public MidgardBasicTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState leaves, BlockState log, BlockState vine, BlockState trunkFruit,
+    public MidgardBasicTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine, BlockState trunkFruit,
 			int minSize, int maxSize) {
-		super(placeOn, replace, leaves, log, vine, trunkFruit, minSize, maxSize);
+		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize);
 		
 	}
     

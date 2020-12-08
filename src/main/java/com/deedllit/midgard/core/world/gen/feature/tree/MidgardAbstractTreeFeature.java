@@ -13,6 +13,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.BushBlock;
 import net.minecraft.block.SaplingBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.state.IProperty;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
@@ -36,15 +37,17 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 		protected IBlockPosQuery placeOn ; 
 		protected IBlockPosQuery replace ;
 		
-		protected BlockState leaves ; 
 		protected BlockState log ; 
+		protected BlockState leaves ; 
+		protected BlockState alternativeLeaves ; 
 		protected BlockState vine ; 
 		protected BlockState trunkFruit ; 
-		
 		
 		protected int minSize ;
 		protected int maxSize ; 
 
+		protected int trunkSize ;
+		protected boolean increaseTrunk ; 
 		
 		public BuilderBase() {
 			
@@ -56,8 +59,14 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 			
 			this.log = Blocks.OAK_LOG.getDefaultState();
 			this.leaves = Blocks.OAK_LEAVES.getDefaultState();
+			this.alternativeLeaves = Blocks.AIR.getDefaultState() ; 
 			this.vine = Blocks.AIR.getDefaultState();
 			this.trunkFruit = Blocks.AIR.getDefaultState();
+			
+			this.minSize = 4 ; 
+			this.maxSize = 7 ; 
+			this.trunkSize = 1 ; 
+			this.increaseTrunk = false ; 
 			
 			
 		}
@@ -67,6 +76,7 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 		
 		public T log(BlockState log) {this.log = log; return (T)this; }
         public T leaves(BlockState leaves) {this.leaves = leaves; return (T)this; }
+        public T alternativeLeaves(BlockState alternativeLeaves) {this.alternativeLeaves = alternativeLeaves; return (T)this; }
         public T vine(BlockState vine) {this.vine = vine; return (T)this; }		
         public T trunkFruit(BlockState vine) {this.vine = vine; return (T)this; }		
         
@@ -79,8 +89,9 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 	protected IBlockPosQuery placeOn ;
 	protected IBlockPosQuery replace ;
 	
-	protected BlockState leaves ; 
 	protected BlockState log ; 
+	protected BlockState leaves ; 
+	protected BlockState alternativeLeaves ; 
 	protected BlockState vine ; 
 	protected BlockState trunkFruit ; 
 
@@ -89,15 +100,16 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 
 	protected IProperty logAxis ; 
 		
-	protected  MidgardAbstractTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState leaves, BlockState log, BlockState vine, BlockState trunkFruit, int minSize, int maxSize ) {
+	protected  MidgardAbstractTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine, BlockState trunkFruit, int minSize, int maxSize ) {
 		super(BaseTreeFeatureConfig::deserialize);
 		
 		this.placeOn = placeOn ; 
 		this.replace = replace ; 
 		
 		
-		this.leaves = leaves ; 
 		this.log = log ; 
+		this.leaves = leaves ; 
+		this.alternativeLeaves = alternativeLeaves ; 
 		this.vine = vine ; 
 		this.trunkFruit = trunkFruit ; 
 		
@@ -107,7 +119,6 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 		this.logAxis = BlockHelper.getAxisProperty(this.log) ; 
 			
 	}
-	
 	
 	
 	protected void generateTrunk(IWorld worldIn, BlockPos pos, MutableBoundingBox boundingBox, Set<BlockPos> changedLogs, int height) {
@@ -163,6 +174,20 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 		
 	}
 	
+	public Direction getRandomDirection(Random rand) {
+		return Direction.random(rand) ;  
+	}
+	
+	public BlockPos moveToGround(IWorld world, BlockPos pos) {
+		
+		while (pos.getY() > 1 && world.isAirBlock(pos) || world.getBlockState(pos).getMaterial() == Material.LEAVES) {
+			pos = pos.down();
+		}
+		
+		return pos ; 
+		
+	}
+	
 	public boolean placeLog(IWorld world, BlockPos pos, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBoxIn) {
 		return this.placeLog(world, pos, null, changedBlocks, boundingBoxIn);
 	}
@@ -179,6 +204,7 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
         return false;
     }
 		
+     
     public boolean placeBlock(IWorld world, BlockPos pos, BlockState state, Set<BlockPos> changedBlocks, MutableBoundingBox boundingBoxIn) {		
 		if (!isAirOrLeaves(world, pos) && !isVine(world, pos) && !isWater(world, pos)) {
             return false;

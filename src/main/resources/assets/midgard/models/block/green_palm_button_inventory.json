@@ -1,0 +1,6 @@
+{
+    "parent": "block/button_inventory",
+    "textures": {
+        "texture": "midgard:blocks/green_palm_planks"
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_pressure_plate",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "midgard:green_palm_planks"
+    }
+  },
+  "result": {
+    "item": "midgard:green_palm_pressure_plate"
+  }
+}

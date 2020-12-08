@@ -6,7 +6,7 @@ import com.deedllit.midgard.common.block.midgard.*;
 import com.deedllit.midgard.common.objects.blocks.PedestalItemBlock;
 import com.deedllit.midgard.core.block.MidgardSeaGrassBlock;
 import com.deedllit.midgard.init.objects.blocks.*;
-import com.deedllit.midgard.world.feature.midgard.features.BlueSpruceTree;
+import com.deedllit.midgard.world.feature.midgard.features.*;
 import com.deedllit.midgard.world.feature.midgard.trees.*;
 
 import net.minecraft.block.PressurePlateBlock.Sensitivity;
@@ -164,6 +164,87 @@ public class BlockInit {
 			() -> new SlabBlock(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(2.0F, 6.0F)));
 	
 	
+	//PALM TREE
+
+	public static final RegistryObject<Block> PALM_LOG = BLOCKS.register("palm_log",
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+	
+	public static final RegistryObject<Block> STRIPPED_PALM_LOG = BLOCKS.register("stripped_palm_log",
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+
+	public static final RegistryObject<Block> PALM_WOOD = BLOCKS.register("palm_wood",
+			() -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+
+	public static final RegistryObject<Block> STRIPPED_PALM_WOOD = BLOCKS.register("stripped_palm_wood",
+			() -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+
+	public static final RegistryObject<Block> PALM_PLANKS = BLOCKS.register("palm_planks",
+			() -> new Block(Block.Properties.from(Blocks.DARK_OAK_PLANKS)));
+
+	public static final RegistryObject<Block> PALM_STAIRS = BLOCKS.register("palm_stairs",
+			() -> new StairsBlock(() -> BlockInit.PALM_PLANKS.get().getDefaultState(),
+					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+
+	public static final RegistryObject<Block> PALM_FENCE = BLOCKS.register("palm_fence",
+			() -> new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+	
+	public static final RegistryObject<Block> PALM_FENCE_GATE = BLOCKS.register("palm_fence_gate",
+			() -> new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+
+	public static final RegistryObject<Block> PALM_BUTTON = BLOCKS.register("palm_button",
+			() -> new MidgardWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+	
+	public static final RegistryObject<Block> PALM_PRESSURE_PLATE = BLOCKS.register("palm_pressure_plate",
+			() -> new MidgardPressurePlateBlock(Sensitivity.EVERYTHING,
+					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+					
+	public static final RegistryObject<Block> PALM_LEAVES = BLOCKS.register("palm_leaves",
+			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
+	
+	public static final RegistryObject<Block> PALM_SAPLING = BLOCKS.register("palm_sapling",
+			() -> new MidgardSaplingBlock(new PalmTree(),  Block.Properties.from(Blocks.OAK_SAPLING)));
+	
+	//GREEN_PALM TREE
+
+	public static final RegistryObject<Block> GREEN_PALM_LOG = BLOCKS.register("green_palm_log",
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+	
+	public static final RegistryObject<Block> STRIPPED_GREEN_PALM_LOG = BLOCKS.register("stripped_green_palm_log",
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+
+	public static final RegistryObject<Block> GREEN_PALM_WOOD = BLOCKS.register("green_palm_wood",
+			() -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+
+	public static final RegistryObject<Block> STRIPPED_GREEN_PALM_WOOD = BLOCKS.register("stripped_green_palm_wood",
+			() -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+
+	public static final RegistryObject<Block> GREEN_PALM_PLANKS = BLOCKS.register("green_palm_planks",
+			() -> new Block(Block.Properties.from(Blocks.DARK_OAK_PLANKS)));
+
+	public static final RegistryObject<Block> GREEN_PALM_STAIRS = BLOCKS.register("green_palm_stairs",
+			() -> new StairsBlock(() -> BlockInit.GREEN_PALM_PLANKS.get().getDefaultState(),
+					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+
+	public static final RegistryObject<Block> GREEN_PALM_FENCE = BLOCKS.register("green_palm_fence",
+			() -> new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+	
+	public static final RegistryObject<Block> GREEN_PALM_FENCE_GATE = BLOCKS.register("green_palm_fence_gate",
+			() -> new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+
+	public static final RegistryObject<Block> GREEN_PALM_BUTTON = BLOCKS.register("green_palm_button",
+			() -> new MidgardWoodButtonBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+	
+	public static final RegistryObject<Block> GREEN_PALM_PRESSURE_PLATE = BLOCKS.register("green_palm_pressure_plate",
+			() -> new MidgardPressurePlateBlock(Sensitivity.EVERYTHING,
+					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
+					
+	public static final RegistryObject<Block> GREEN_PALM_LEAVES = BLOCKS.register("green_palm_leaves",
+			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
+	
+	public static final RegistryObject<Block> GREEN_PALM_SAPLING = BLOCKS.register("green_palm_sapling",
+			() -> new MidgardSaplingBlock(new GreenPalmTree(),  Block.Properties.from(Blocks.OAK_SAPLING)));
+
+	
 	//BLUE_SPRUCE TREE
 
 	public static final RegistryObject<Block> BLUE_SPRUCE_LOG = BLOCKS.register("blue_spruce_log",
@@ -242,6 +323,10 @@ public class BlockInit {
 					
 	public static final RegistryObject<Block> NORWAY_SPRUCE_LEAVES = BLOCKS.register("norway_spruce_leaves",
 			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
+	
+	public static final RegistryObject<Block> NORWAY_SPRUCE_SAPLING = BLOCKS.register("norway_spruce_sapling",
+			() -> new MidgardSaplingBlock(new NorwaySpruceTree(),  Block.Properties.from(Blocks.OAK_SAPLING)));
+
 	
 	//ELM TREE
 	
@@ -426,15 +511,12 @@ public class BlockInit {
 			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
 	
 	
-	public static final RegistryObject<Block> PALM_LOG = BLOCKS.register("palm_log",
-			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
 
-	public static final RegistryObject<Block> GREEN_PALM_LOG = BLOCKS.register("green_palm_log",
-			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
 
-	public static final RegistryObject<Block> PALM_LEAVES = BLOCKS.register("palm_leaves",
-			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
-
+	
+	
+	
+	
 	public static final RegistryObject<Block> IRON_WOOD_LOG = BLOCKS.register("iron_wood_log",
 			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
 

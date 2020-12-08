@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "midgard:norway_spruce_planks"
+    }
+  ],
+  "result": {
+    "item": "midgard:norway_spruce_button"
+  }
+}
