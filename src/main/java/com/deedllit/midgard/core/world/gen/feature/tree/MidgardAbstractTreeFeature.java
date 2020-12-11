@@ -45,9 +45,6 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 		
 		protected int minSize ;
 		protected int maxSize ; 
-
-		protected int trunkSize ;
-		protected boolean increaseTrunk ; 
 		
 		public BuilderBase() {
 			
@@ -64,11 +61,7 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 			this.trunkFruit = Blocks.AIR.getDefaultState();
 			
 			this.minSize = 4 ; 
-			this.maxSize = 7 ; 
-			this.trunkSize = 1 ; 
-			this.increaseTrunk = false ; 
-			
-			
+			this.maxSize = 7 ; 			
 		}
 		
 		public T placeOn(IBlockPosQuery a) {this.placeOn = a; return (T)this;}
@@ -78,7 +71,7 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
         public T leaves(BlockState leaves) {this.leaves = leaves; return (T)this; }
         public T alternativeLeaves(BlockState alternativeLeaves) {this.alternativeLeaves = alternativeLeaves; return (T)this; }
         public T vine(BlockState vine) {this.vine = vine; return (T)this; }		
-        public T trunkFruit(BlockState vine) {this.vine = vine; return (T)this; }		
+        public T trunkFruit(BlockState trunkFruit) {this.trunkFruit = trunkFruit; return (T)this; }		
         
         public T minSize(int min) {this.minSize = min; return (T)this;}
         public T maxSize(int max) {this.maxSize = max; return (T)this;}
@@ -99,6 +92,7 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 	protected int maxSize ; 
 
 	protected IProperty logAxis ; 
+		
 		
 	protected  MidgardAbstractTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine, BlockState trunkFruit, int minSize, int maxSize ) {
 		super(BaseTreeFeatureConfig::deserialize);

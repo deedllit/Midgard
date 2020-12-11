@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "midgard:blocks/papaya_log_top",
+        "side": "midgard:blocks/papaya_log"
+    }
+}

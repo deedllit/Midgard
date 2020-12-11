@@ -2,6 +2,7 @@ package com.deedllit.midgard.init;
 
 import com.deedllit.midgard.Midgard;
 import com.deedllit.midgard.common.block.*;
+import com.deedllit.midgard.common.block.fruits.*;
 import com.deedllit.midgard.common.block.midgard.*;
 import com.deedllit.midgard.common.objects.blocks.PedestalItemBlock;
 import com.deedllit.midgard.core.block.MidgardSeaGrassBlock;
@@ -164,6 +165,37 @@ public class BlockInit {
 			() -> new SlabBlock(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(2.0F, 6.0F)));
 	
 	
+	//PAPAYA TREE
+
+	public static final RegistryObject<Block> PAPAYA_LOG = BLOCKS.register("papaya_log",
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+						
+	public static final RegistryObject<Block> PAPAYA_LEAVES = BLOCKS.register("papaya_leaves",
+			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
+	
+	public static final RegistryObject<Block> PAPAYA_SAPLING = BLOCKS.register("papaya_sapling",
+			() -> new MidgardSaplingBlock(new PapayaTree(),  Block.Properties.from(Blocks.OAK_SAPLING)));
+	
+	public static final RegistryObject<Block> PAPAYA = BLOCKS.register("papaya",
+			() -> new PapayaFruitBlock(Block.Properties.from(Blocks.COCOA)));
+
+	public static final RegistryObject<Block> PAPAYA_EMERALD = BLOCKS.register("papaya_emerald",
+			() -> new PapayaFruitBlock(Block.Properties.from(Blocks.COCOA)));
+
+	//BANANA TREE
+
+	public static final RegistryObject<Block> BANANA_LOG = BLOCKS.register("banana_log",
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+						
+	public static final RegistryObject<Block> BANANA_LEAVES = BLOCKS.register("banana_leaves",
+			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
+	
+	public static final RegistryObject<Block> BANANA_SAPLING = BLOCKS.register("banana_sapling",
+			() -> new MidgardSaplingBlock(new BananaTree(),  Block.Properties.from(Blocks.OAK_SAPLING)));
+	
+	public static final RegistryObject<Block> BANANA = BLOCKS.register("banana",
+			() -> new BananaFruitBlock(Block.Properties.from(Blocks.COCOA)));
+
 	//PALM TREE
 
 	public static final RegistryObject<Block> PALM_LOG = BLOCKS.register("palm_log",

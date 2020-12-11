@@ -222,6 +222,35 @@ public class MidgardDefaultBiomeFeatures {
 	
 	
 	public static void addPalmTree(Biome biomeIn) {
+		
+	    biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		Feature.RANDOM_SELECTOR.withConfiguration(
+	    				new MultipleRandomFeatureConfig(
+	    						ImmutableList.of(FeatureInit.PAPAYA_EMERALD_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withChance(0.01F), 
+	    								FeatureInit.BANANA_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withChance(0.1F), 
+	    								FeatureInit.PAPAYA_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withChance(0.1F),
+	    								FeatureInit.GREEN_PLAM_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withChance(0.333333333F)), 
+	    						FeatureInit.PLAM_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+
+		
+		/*
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.BANANA_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+		
+		
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.PAPAYA_EMERALD_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+		
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.PAPAYA_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+		
+		
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
 	    		  FeatureInit.PLAM_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
 	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
@@ -231,7 +260,8 @@ public class MidgardDefaultBiomeFeatures {
 	    		  FeatureInit.GREEN_PLAM_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
 	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
 	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
-		
+		*/
+	    
 	}
 	
 	public static void addDenseBlueSpruce(Biome biomeIn) {

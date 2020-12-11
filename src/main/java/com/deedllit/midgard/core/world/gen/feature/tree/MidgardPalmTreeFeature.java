@@ -11,29 +11,28 @@ import com.deedllit.midgard.util.helpers.RandomHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CocoaBlock;
 import net.minecraft.block.SaplingBlock;
-import net.minecraft.block.material.Material;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
 
 public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 
 	public static class Builder extends BuilderBase<Builder, MidgardPalmTreeFeature> {
-
-		protected int trunkSize = 1;
-		protected boolean increaseTrunk = false;
-
+		
+		protected double baseCarving ;
+		protected double baseCarvingExtra ;
+		protected boolean extraCavring ;
+		
 		public Builder() {
 			this.minSize = 8;
 			this.maxSize = 13;
 			this.log = BlockInit.PALM_LOG.get().getDefaultState();
 			this.leaves = BlockInit.PALM_LEAVES.get().getDefaultState();
-			this.vine = Blocks.VINE.getDefaultState();
-			
+					
 			this.placeOn = (world, pos) -> {
 				
 				Block cur = world.getBlockState(pos).getBlock();
@@ -41,32 +40,44 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 						(BlockTags.SAND.contains(cur))) ; 
 			} ; 
 			
+			this.extraCavring = true ; 
+			this.baseCarving = 1.3D ;
+			this.baseCarvingExtra = 1.1D ;
 		}
 
 				
 		@Override
 		public MidgardPalmTreeFeature create() {
-			return new MidgardPalmTreeFeature(placeOn, replace, log, leaves, vine, alternativeLeaves, trunkFruit, minSize, maxSize, trunkSize, increaseTrunk);
+			return new MidgardPalmTreeFeature(placeOn, replace, log, leaves, vine, alternativeLeaves, trunkFruit, minSize, maxSize, baseCarving, baseCarvingExtra, extraCavring);
 		}
+		
+		
+		public Builder baseCarving(double baseCarving) {this.baseCarving = baseCarving; return this;}
+		public Builder baseCarvingExtra(double baseCarvingExtra) {this.baseCarvingExtra = baseCarvingExtra; return this;}
+		public Builder extraCavring(boolean extraCavring) {this.extraCavring = extraCavring; return this;}
 
 	}
 
-	private int trunkSize = 1;
-	private boolean increaseTrunk = false;
-
+	protected double baseCarving ;
+	protected double baseCarvingExtra ;
+	protected boolean extraCavring ; 
+	
 	public MidgardPalmTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine,
-			BlockState trunkFruit, int minSize, int maxSize, int trunkSize, boolean increaseTrunk) {
+			BlockState trunkFruit, int minSize, int maxSize, double baseCarving, double baseCarvingExtra, boolean extraCavring) {
 		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize);
 		
-		this.increaseTrunk = increaseTrunk ; 
-		this.trunkSize = trunkSize;
+		this.baseCarving = baseCarving ;
+		this.baseCarvingExtra = baseCarvingExtra ; 
+		this.extraCavring = extraCavring ; 
+		//this.trunkFruit = BlockInit.PAPAYA_FRUIT.get().getDefaultState() ; 
+
 	}
 		
 	@Override
 	protected boolean placeTree(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world,
 			Random rand, BlockPos positionIn, MutableBoundingBox boundingBoxIn) {
 
-		Midgard.LOGGER.info("MidgardPalmTreeFeature - placeTree");
+		//Midgard.LOGGER.info("MidgardPalmTreeFeature - placeTree : " + this.baseCarving);
 
 		//Move to ground and check for placement
 		BlockPos posStart = this.moveToGround(world, positionIn);
@@ -101,9 +112,9 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 			}		
 		}
 		
-        double curveMultiplier = 1.30D + (rand.nextInt(5) - 2) * 0.05D ;
-        double secondCurveMultiplier = 1.1D + (rand.nextInt(5) - 2) * 0.05D ;
-		double curveOffset = rand.nextInt(36) / 100D; ;
+        double curveMultiplier = this.baseCarving + (rand.nextInt(5) - 2) * 0.05D ;
+        double secondCurveMultiplier = this.baseCarvingExtra + (rand.nextInt(5) - 2) * 0.05D ;
+		double curveOffset = rand.nextInt(40) / 100D; ;
 		
 		BlockPos offsetPos = posStart ; 
 		BlockPos lastPos = posStart ; 
@@ -112,12 +123,15 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 			
 			if(isCurved) {
 				lastPos = offsetPos.up(step).offset(dir, (int) Math.sqrt(curveOffset)) ; 
-				this.placeLog(world, lastPos, changedLogs, boundingBoxIn);
-			
+				
+				this.placeLog(world, lastPos, changedLogs, boundingBoxIn);				
+
+
+				
 				curveOffset *= curveMultiplier;
 				
 				//Chance to curve faster
-				if (rand.nextInt(25) == 0) {
+				if (this.extraCavring && rand.nextInt(25) == 0) {
 					curveOffset *= secondCurveMultiplier;					
 				}
 				
@@ -125,19 +139,55 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 				lastPos = offsetPos.up(step)  ; 
 				this.placeLog(world, lastPos, changedLogs, boundingBoxIn);				
 			}
-					
+
+			
+			
+			if(this.trunkFruit != Blocks.AIR.getDefaultState() && step == heightMinusTop && rand.nextInt(4) == 0) {
+				int r = rand.nextInt(15) + 1 ;
+								
+				if((r & 1) == 1) {
+					this.generateTrunkFruit(world, rand.nextInt(3), lastPos.north(), Direction.SOUTH) ; 					
+				}
+
+				if((r & 2) == 2) {
+					this.generateTrunkFruit(world, rand.nextInt(3), lastPos.south(), Direction.NORTH) ; 					
+				}
+
+				if((r & 4) == 4) {
+					this.generateTrunkFruit(world, rand.nextInt(3), lastPos.west(), Direction.EAST) ; 
+				}
+				
+				if((r & 8) == 8) {
+					this.generateTrunkFruit(world, rand.nextInt(3), lastPos.east(), Direction.WEST) ; 														
+				}
+			}
 			
 		}
-			 
+			 	
+		
+
 		
 		
 		this.generateLeaves(world, rand, lastPos.up(), changedLeaves, boundingBoxIn, leavesRadius)  ; 
+		
 		
 		return true ; 
 				
 	}
 	
+    private void generateTrunkFruit(IWorld worldIn, int age, BlockPos pos, Direction direction)
+    {
+    	
+		
+		if(this.trunkFruit != Blocks.AIR.getDefaultState()) {
+	    	this.setBlockState(worldIn, pos, this.trunkFruit.with(CocoaBlock.AGE, age).with(CocoaBlock.HORIZONTAL_FACING, direction));			
+		}
+		
 
+    	
+    	
+    	
+    }
 
 	private void generateLeaves(IWorld world, Random rand, BlockPos pos, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBoxIn, int leavesRadius) {
 		

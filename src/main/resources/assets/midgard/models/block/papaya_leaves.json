@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "midgard:blocks/papaya_leaves"
+    }
+}

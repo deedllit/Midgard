@@ -4,12 +4,19 @@ import com.deedllit.midgard.api.enums.MidgardClimate;
 import com.deedllit.midgard.core.world.biome.MidgardBiome;
 import com.deedllit.midgard.core.world.dimension.midgard.config.MidgardDefaultBiomeFeatures;
 import com.deedllit.midgard.init.BiomeInit;
+import com.deedllit.midgard.init.FeatureInit;
 import com.deedllit.midgard.init.SurfaceBuilderInit;
+import com.google.common.collect.ImmutableList;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
+import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -36,8 +43,20 @@ public class MidgardChaparralTropicalBiome extends MidgardBiome {
 	      DefaultBiomeFeatures.addOres(this);
 	      DefaultBiomeFeatures.addSedimentDisks(this);
 	      MidgardDefaultBiomeFeatures.addRice(this) ; 
-	      MidgardDefaultBiomeFeatures.addJungleTrees(this);
+	      
+	      	      
+	      MidgardDefaultBiomeFeatures.addJungleTrees(this);	      
 	      MidgardDefaultBiomeFeatures.addTropicalVegetation(this);
+
+		    this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+		    		Feature.RANDOM_SELECTOR.withConfiguration(
+		    				new MultipleRandomFeatureConfig(
+		    						ImmutableList.of(FeatureInit.PAPAYA_EMERALD_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withChance(0.0001F), 
+		    								FeatureInit.BANANA_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withChance(0.1F), 
+		    								FeatureInit.PAPAYA_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withChance(0.1F)),
+		    						FeatureInit.PLAM_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+
+	      
 	      MidgardDefaultBiomeFeatures.addExtraTropicalVegetation(this);
 	      MidgardDefaultBiomeFeatures.addBamboo(this);
 	      MidgardDefaultBiomeFeatures.addBambooJungleVegetation(this) ;
