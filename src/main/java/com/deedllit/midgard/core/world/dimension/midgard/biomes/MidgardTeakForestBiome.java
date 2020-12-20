@@ -3,8 +3,13 @@ package com.deedllit.midgard.core.world.dimension.midgard.biomes;
 import com.deedllit.midgard.api.enums.MidgardClimate;
 import com.deedllit.midgard.core.world.biome.MidgardBiome;
 import com.deedllit.midgard.core.world.dimension.midgard.config.MidgardDefaultBiomeFeatures;
+import com.deedllit.midgard.init.FeatureInit;
 
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -24,7 +29,9 @@ public class MidgardTeakForestBiome extends MidgardBiome {
 		  	.parent((String)null));
 	      
 	      
-	      MidgardDefaultBiomeFeatures.addPalmTree(this);
+			this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+					FeatureInit.BLACK_POPLAR_SMALL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withPlacement(
+							Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
 	      
 
 	      this.addWeight( MidgardClimate.TROPICAL,1);

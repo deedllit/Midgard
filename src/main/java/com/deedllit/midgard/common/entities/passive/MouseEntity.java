@@ -1,4 +1,4 @@
-package com.deedllit.midgard.common.entity.passive;
+package com.deedllit.midgard.common.entities.passive;
 
 import com.deedllit.midgard.init.EntityInit;
 

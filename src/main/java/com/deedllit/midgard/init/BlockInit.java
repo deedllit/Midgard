@@ -53,7 +53,7 @@ public class BlockInit {
 	public static final RegistryObject<Block> PINK_QUARTZ_ORE = BLOCKS.register("pink_quartz_ore",
 			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(0.8F).sound(SoundType.STONE)));
 
-	
+		
 	 /* SPEICAL BLOCK
 	 */
 	
@@ -103,9 +103,14 @@ public class BlockInit {
 	public static final RegistryObject<Block> SMOOTH_PINK_QUARTZ_SLAB = BLOCKS.register("smooth_pink_quartz_slab",
 			() -> new SlabBlock(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(2.0F, 6.0F)));
 	
+	
+	//SKULL
+	
+	public static final RegistryObject<Block> COBBLESTONE_SKULLS = BLOCKS.register("cobblestone_skulls",
+			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0F, 6.0F)));
+	
 	//AMETHYST_QUARTZ
-	
-	
+			
 	public static final RegistryObject<Block> AMETHYST_QUARTZ_BLOCK = BLOCKS.register("amethyst_quartz_block",
 			() -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.QUARTZ).hardnessAndResistance(0.8F)));
 
@@ -185,7 +190,7 @@ public class BlockInit {
 	//BANANA TREE
 
 	public static final RegistryObject<Block> BANANA_LOG = BLOCKS.register("banana_log",
-			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG).hardnessAndResistance(1.0F)));
 						
 	public static final RegistryObject<Block> BANANA_LEAVES = BLOCKS.register("banana_leaves",
 			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
@@ -504,6 +509,8 @@ public class BlockInit {
 			() -> new MidgardPressurePlateBlock(Sensitivity.EVERYTHING,
 					Block.Properties.create(Material.WOOD, MaterialColor.WOOD)));
 	
+	public static final RegistryObject<Block> POPLAR_SAPLING = BLOCKS.register("poplar_sapling",
+			() -> new MidgardSaplingBlock(new BlackPoplarTree(),  Block.Properties.from(Blocks.OAK_SAPLING)));
 	
 	//MIDGARD_MANGROVE TREE
 

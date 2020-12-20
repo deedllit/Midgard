@@ -7,12 +7,14 @@ import com.deedllit.midgard.init.EntityInit;
 import com.deedllit.midgard.init.FeatureInit;
 import com.deedllit.midgard.init.FluidInit;
 import com.deedllit.midgard.init.ItemInit;
+import com.deedllit.midgard.init.ModEntityTypes;
 import com.deedllit.midgard.init.PaintingInit;
 import com.deedllit.midgard.init.SoundInit;
 import com.deedllit.midgard.init.StructureInit;
 import com.deedllit.midgard.init.SurfaceBuilderInit;
 import com.deedllit.midgard.init.YggdrasilContainerTypes;
 import com.deedllit.midgard.init.YggdrasilTileEntityTypes;
+import com.deedllit.midgard.util.interfaces.IDoNotCreateItem;
 import com.deedllit.mythologycraft.config.Config;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraft.block.FlowingFluidBlock;
@@ -68,6 +70,7 @@ public class Midgard
     	BlockInit.BLOCKS.register(modEventBus);
 		YggdrasilTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
 		YggdrasilContainerTypes.CONTAINER_TYPES.register(modEventBus);
+		ModEntityTypes.ENTITY_TYPES.register(modEventBus);
 		//FeatureInit.FEATURES.register(modEventBus);
 		SurfaceBuilderInit.SURFACE_BUILDERS.register(modEventBus);
 		StructureInit.STRUCTURES.register(modEventBus);
@@ -94,6 +97,7 @@ public class Midgard
 		
 		BlockInit.BLOCKS.getEntries().stream()
 		.filter(block -> 
+			!(block.get() instanceof IDoNotCreateItem) && 
 			!(block.get() instanceof FlowingFluidBlock))
 		.map(RegistryObject::get).forEach(block -> {
 			final Item.Properties properties = new Item.Properties().group(YggdrasilItemGroup.instance);

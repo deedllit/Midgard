@@ -29,6 +29,14 @@ public class FeatureInit {
 	public static Feature<BaseTreeFeatureConfig> TEST =
 			new MidgardBasicTreeFeature.Builder().log(Blocks.ACACIA_LOG.getDefaultState()).leaves(Blocks.ACACIA_LEAVES.getDefaultState()).create() ;  
 
+	public static Feature<BaseTreeFeatureConfig> BLACK_POPLAR_SMALL =
+			new MidgardPoplarTreeFeature.Builder()
+				.log(BlockInit.BLACK_POPLAR_LOG.get().getDefaultState())
+				.leaves(BlockInit.BLUE_SPRUCE_LEAVES.get().getDefaultState())
+				.minSize(20)
+				.maxSize(36)
+				.create() ;  
+	
 	public static Feature<BaseTreeFeatureConfig> BLUE_SPRUCE_SMALL =
 			new MidgardConiferTreeFeature.Builder()
 				.log(BlockInit.BLUE_SPRUCE_LOG.get().getDefaultState())

@@ -1,8 +1,10 @@
 package com.deedllit.midgard.init;
 
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Rarity;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,6 +19,10 @@ public class ItemInit {
 
 	
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS,  Midgard.MOD_ID) ; 	
+	
+	
+	public static final RegistryObject<Item> BANANA_FLOWER = ITEMS.register("banana_flower",
+			() -> new BlockNamedItem(BlockInit.BANANA.get(), (new Item.Properties()).group(YggdrasilItemGroup.instance))) ; 
 	
 	
 	public static final RegistryObject<Item> BANANA_FRUIT = ITEMS.register("banana_fruit",

@@ -2,6 +2,8 @@
 	"replace": false,
 	"values": [
 		"midgard:ash_log",
+		"midgard:black_poplar_log",
+		"midgard:white_poplar_log",
 		"midgard:blue_spruce_log",
 		"midgard:elm_log",
 		"midgard:green_palm_log",

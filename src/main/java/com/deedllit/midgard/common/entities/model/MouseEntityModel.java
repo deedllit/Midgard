@@ -1,4 +1,4 @@
-package com.deedllit.midgard.common.entity.model;
+package com.deedllit.midgard.common.entities.model;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;

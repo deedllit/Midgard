@@ -7,6 +7,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -14,10 +15,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import javax.annotation.Nullable;
 
 import com.deedllit.midgard.Midgard;
+import com.deedllit.midgard.common.client.entity.render.*;
 import com.deedllit.midgard.common.client.gui.PedestalItemScreen;
 import com.deedllit.midgard.common.client.tileentity.render.PedestalItemRenderer;
 import com.deedllit.midgard.init.BiomeInit;
 import com.deedllit.midgard.init.BlockInit;
+import com.deedllit.midgard.init.ModEntityTypes;
 import com.deedllit.midgard.init.SoundInit;
 import com.deedllit.midgard.init.YggdrasilContainerTypes;
 import com.deedllit.midgard.init.YggdrasilTileEntityTypes;
@@ -101,6 +104,9 @@ public class ClientEventBusSubscriber {
 				
 		RenderType basicRender =  RenderType.getCutout();
 
+		ScreenManager.registerFactory(YggdrasilContainerTypes.ITEM_PEDESTAL.get(), PedestalItemScreen::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CAMEL_ENTITY.get(), CamelEntityRender::new);
+		ClientRegistry.bindTileEntityRenderer(YggdrasilTileEntityTypes.ITEM_PEDESTAL.get(), PedestalItemRenderer::new);
 		
 		/*
 		 * MIDGARD
@@ -163,9 +169,6 @@ public class ClientEventBusSubscriber {
 		 * COMMON 
 		 */		
 		
-		ScreenManager.registerFactory(YggdrasilContainerTypes.ITEM_PEDESTAL.get(), PedestalItemScreen::new);
-
-		ClientRegistry.bindTileEntityRenderer(YggdrasilTileEntityTypes.ITEM_PEDESTAL.get(), PedestalItemRenderer::new);
 		
 		
 	}

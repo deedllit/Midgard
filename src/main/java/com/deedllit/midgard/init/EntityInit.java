@@ -1,8 +1,8 @@
 package com.deedllit.midgard.init;
 
 import com.deedllit.midgard.Midgard;
-import com.deedllit.midgard.common.entity.monster.FireSkeletonEntity;
-import com.deedllit.midgard.common.entity.passive.MouseEntity;
+import com.deedllit.midgard.common.entities.monster.FireSkeletonEntity;
+import com.deedllit.midgard.common.entities.passive.MouseEntity;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;

@@ -1,6 +1,7 @@
 package com.deedllit.midgard.common.block.fruits;
 
 import com.deedllit.midgard.init.BlockInit;
+import com.deedllit.midgard.util.interfaces.IDoNotCreateItem;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -8,7 +9,7 @@ import net.minecraft.block.CocoaBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 
-public class BananaFruitBlock extends CocoaBlock {
+public class BananaFruitBlock extends CocoaBlock implements IDoNotCreateItem {
 
 	public BananaFruitBlock(Properties builder) {
 		super(builder);

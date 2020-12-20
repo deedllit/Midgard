@@ -1,4 +1,4 @@
-package com.deedllit.midgard.common.entity.monster;
+package com.deedllit.midgard.common.entities.monster;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
