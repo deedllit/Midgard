@@ -1,5 +1,6 @@
 package com.deedllit.midgard.core.world.dimension.midgard.generator.layer;
 
+import com.deedllit.midgard.Midgard;
 import com.deedllit.midgard.init.BiomeInit;
 
 import net.minecraft.util.registry.Registry;
@@ -63,6 +64,9 @@ public class MidgardBiomeLayer implements IC0Transformer {
 		} else {
 			int i = (value & 3840) >> 8;
 			value = value & -3841;
+			
+			Midgard.LOGGER.info("MidgardBiomeLayer : " + i + " " +  value) ;
+			
 			if (!MidgardLayerUtil.isOcean(value) && value != MUSHROOM_FIELDS) {
 				switch (value) {
 				case 1:

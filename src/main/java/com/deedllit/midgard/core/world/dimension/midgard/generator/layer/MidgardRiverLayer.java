@@ -18,7 +18,7 @@ public enum MidgardRiverLayer implements ICastleTransformer {
 		   
 		   int newValue = 2 + (value & 1) ; 
 		   
-		  // Midgard.LOGGER.info("MidgardRiverLayer" + value+ " --> " + newValue) ;
+		  //Midgard.LOGGER.info("MidgardRiverLayer" + value+ " --> " + newValue) ;
 		   
 	      return value >= 2 ? newValue : value;
 	   }

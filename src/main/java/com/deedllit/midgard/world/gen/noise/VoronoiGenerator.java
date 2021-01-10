@@ -1,53 +1,111 @@
 package com.deedllit.midgard.world.gen.noise;
 
-
-/*
- * Source
- * https://github.com/Cy4Shot/Humlands-Mod/blob/16ea598e19281a9c14188f402997fc8b81086238/src/main/java/com/turtysproductions/humlands/core/world/dimension/VoronoiGenerator.java#L3
- */
+import java.util.Random;
 
 public class VoronoiGenerator {
-	
-	static final int X_NOISE_GEN = 1619;
-	static final int Y_NOISE_GEN = 31337;
-	static final int Z_NOISE_GEN = 6971;
-	static final int SEED_NOISE_GEN = 1013;
 
-	final static double DEFAULT_VORONOI_DISPLACEMENT = 1.0;
-	final static double DEFAULT_VORONOI_FREQUENCY = 1.0;
-	final static int DEFAULT_VORONOI_SEED = 0;
+	private static final double SQRT_2 = 1.4142135623730950488;
 	private static final double SQRT_3 = 1.7320508075688772935;
-	double displacement;
-	boolean enableDistance;
-	double frequency;
-	int seed;
 
-	public VoronoiGenerator() {
-		displacement = DEFAULT_VORONOI_DISPLACEMENT;
-		enableDistance = false;
-		frequency = DEFAULT_VORONOI_FREQUENCY;
-		seed = DEFAULT_VORONOI_SEED;
+	private long seed;
+	private short distanceMethod;
+
+	public VoronoiGenerator(long seed, short distanceMethod /* TODO: int octaves */) {
+		this.seed = seed;
+		this.distanceMethod = distanceMethod;
 	}
 
-	public double getValue(double x, double y, double z) {
+	private double getDistance(double xDist, double zDist) {
+		switch (distanceMethod) {
+		case 0:
+			return Math.sqrt(xDist * xDist + zDist * zDist) / SQRT_2;
+		case 1:
+			return xDist + zDist;
+		case 2:
+			return Math.pow(Math.E, Math.sqrt(xDist * xDist + zDist * zDist) / SQRT_2) / Math.E;
+		default:
+			return 1.0;
+		}
+	}
+
+	private double getDistance(double xDist, double yDist, double zDist) {
+		switch (distanceMethod) {
+		case 0:
+			return Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist) / SQRT_3;
+		case 1:
+			return xDist + yDist + zDist;
+		default:
+			return 1.0;
+		}
+	}
+
+	public short getDistanceMethod() {
+		return distanceMethod;
+	}
+
+	public long getSeed() {
+		return seed;
+	}
+
+	public double noise(double x, double z, double frequency) {
+		x *= frequency;
+		z *= frequency;
+
+		int xInt = (x > .0 ? (int) x : (int) x - 1);
+		int zInt = (z > .0 ? (int) z : (int) z - 1);
+
+		double minDist = 32000000.0;
+
+		double xCandidate = 0;
+		double zCandidate = 0;
+
+		for (int zCur = zInt - 2; zCur <= zInt + 2; zCur++) {
+			for (int xCur = xInt - 2; xCur <= xInt + 2; xCur++) {
+
+				double xPos = xCur + valueNoise2D(xCur, zCur, seed);
+				double zPos = zCur + valueNoise2D(xCur, zCur, new Random(seed).nextLong());
+				double xDist = xPos - x;
+				double zDist = zPos - z;
+				double dist = xDist * xDist + zDist * zDist;
+
+				if (dist < minDist) {
+					minDist = dist;
+					xCandidate = xPos;
+					zCandidate = zPos;
+				}
+			}
+		}
+
+		double xDist = xCandidate - x;
+		double zDist = zCandidate - z;
+
+		return getDistance(xDist, zDist);
+	}
+
+	public double noise(double x, double y, double z, double frequency) {
 		x *= frequency;
 		y *= frequency;
 		z *= frequency;
 
-		int xInt = (x > 0.0 ? (int) x : (int) x - 1);
-		int yInt = (y > 0.0 ? (int) y : (int) y - 1);
-		int zInt = (z > 0.0 ? (int) z : (int) z - 1);
+		int xInt = (x > .0 ? (int) x : (int) x - 1);
+		int yInt = (y > .0 ? (int) y : (int) y - 1);
+		int zInt = (z > .0 ? (int) z : (int) z - 1);
 
-		double minDist = 2147483647.0;
+		double minDist = 32000000.0;
+
 		double xCandidate = 0;
 		double yCandidate = 0;
 		double zCandidate = 0;
+
+		Random rand = new Random(seed);
+
 		for (int zCur = zInt - 2; zCur <= zInt + 2; zCur++) {
 			for (int yCur = yInt - 2; yCur <= yInt + 2; yCur++) {
 				for (int xCur = xInt - 2; xCur <= xInt + 2; xCur++) {
-					double xPos = xCur + ValueNoise3D(xCur, yCur, zCur, seed);
-					double yPos = yCur + ValueNoise3D(xCur, yCur, zCur, seed + 1);
-					double zPos = zCur + ValueNoise3D(xCur, yCur, zCur, seed + 2);
+
+					double xPos = xCur + valueNoise3D(xCur, yCur, zCur, seed);
+					double yPos = yCur + valueNoise3D(xCur, yCur, zCur, rand.nextLong());
+					double zPos = zCur + valueNoise3D(xCur, yCur, zCur, rand.nextLong());
 					double xDist = xPos - x;
 					double yDist = yPos - y;
 					double zDist = zPos - z;
@@ -63,58 +121,31 @@ public class VoronoiGenerator {
 			}
 		}
 
-		double value;
-		if (enableDistance) {
-			double xDist = xCandidate - x;
-			double yDist = yCandidate - y;
-			double zDist = zCandidate - z;
-			value = (Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist)) * SQRT_3 - 1.0;
-		} else
-			value = 0.0;
-		return value + (displacement * (double) ValueNoise3D((int) (Math.floor(xCandidate)),
-				(int) (Math.floor(yCandidate)), (int) (Math.floor(zCandidate)), seed));
+		double xDist = xCandidate - x;
+		double yDist = yCandidate - y;
+		double zDist = zCandidate - z;
+
+		return getDistance(xDist, yDist, zDist);
 	}
 
-	public void enableDistance(boolean enable) {
-		enableDistance = enable;
+	public void setDistanceMethod(short distanceMethod) {
+		this.distanceMethod = distanceMethod;
 	}
 
-	public double getDisplacement() {
-		return displacement;
-	}
-
-	public double GetFrequency() {
-		return frequency;
-	}
-
-	public int getSeed() {
-		return seed;
-	}
-
-	public boolean IsDistanceEnabled() {
-		return enableDistance;
-	}
-
-	public void setDisplacement(double displacement) {
-		this.displacement = displacement;
-	}
-
-	public void setFrequency(double frequency) {
-		this.frequency = frequency;
-	}
-
-	public void setSeed(int seed) {
+	public void setSeed(long seed) {
 		this.seed = seed;
 	}
 
-	public static double ValueNoise3D(int x, int y, int z, int seed) {
-		return 1.0 - ((double) IntValueNoise3D(x, y, z, seed) / 1073741824.0);
+	public static double valueNoise2D(int x, int z, long seed) {
+		long n = (1619 * x + 6971 * z + 1013 * seed) & 0x7fffffff;
+		n = (n >> 13) ^ n;
+		return 1.0 - ((double) ((n * (n * n * 60493 + 19990303) + 1376312589) & 0x7fffffff) / 1073741824.0);
 	}
 
-	public static int IntValueNoise3D(int x, int y, int z, int seed) {
-		int n = (X_NOISE_GEN * x + Y_NOISE_GEN * y + Z_NOISE_GEN * z + SEED_NOISE_GEN * seed) & 0x7fffffff;
+	public static double valueNoise3D(int x, int y, int z, long seed) {
+		long n = (1619 * x + 31337 * y + 6971 * z + 1013 * seed) & 0x7fffffff;
 		n = (n >> 13) ^ n;
-		return (n * (n * n * 60493 + 19990303) + 1376312589) & 0x7fffffff;
+		return 1.0 - ((double) ((n * (n * n * 60493 + 19990303) + 1376312589) & 0x7fffffff) / 1073741824.0);
 	}
 
 }

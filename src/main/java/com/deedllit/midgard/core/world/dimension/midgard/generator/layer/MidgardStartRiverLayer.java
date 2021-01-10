@@ -14,9 +14,8 @@ public enum MidgardStartRiverLayer implements IC0Transformer {
 			   return value ;
 		   
 		   int r = context.random(299999) + 2 ; 
-		   //Midgard.LOGGER.info("MidgardStartRiverLayer ---> " + r) ; 
+
 		   return r ; 
 		   
-	      //return MidgardLayerUtil.isShallowOcean(value) ? value : context.random(299999) + 2;
 	   }
 	}

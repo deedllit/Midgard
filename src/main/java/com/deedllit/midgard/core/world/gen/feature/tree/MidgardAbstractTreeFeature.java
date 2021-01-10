@@ -46,6 +46,9 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 		protected int minSize ;
 		protected int maxSize ; 
 		
+		protected int minSpawnHeight ; 
+		protected int maxSpawnHeight ; 
+		
 		public BuilderBase() {
 			
 			this.placeOn = (world, pos) -> world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING);
@@ -59,6 +62,9 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 			this.alternativeLeaves = Blocks.AIR.getDefaultState() ; 
 			this.vine = Blocks.AIR.getDefaultState();
 			this.trunkFruit = Blocks.AIR.getDefaultState();
+			
+			this.minSpawnHeight = 0 ; 
+			this.maxSpawnHeight = 1000 ; 
 			
 			this.minSize = 4 ; 
 			this.maxSize = 7 ; 			
@@ -75,6 +81,8 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
         
         public T minSize(int min) {this.minSize = min; return (T)this;}
         public T maxSize(int max) {this.maxSize = max; return (T)this;}
+        public T minSpawnHeight(int min) {this.minSpawnHeight = min; return (T)this;}
+        public T maxSpawnHeight(int max) {this.maxSpawnHeight = max; return (T)this;}
         
         abstract F create();
 	}
@@ -90,11 +98,16 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 
 	protected int minSize ;
 	protected int maxSize ; 
-
+	protected int minSpawnHeight ; 
+	protected int maxSpawnHeight ; 
+	
 	protected IProperty logAxis ; 
 		
-		
-	protected  MidgardAbstractTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine, BlockState trunkFruit, int minSize, int maxSize ) {
+	protected  MidgardAbstractTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine, BlockState trunkFruit, int minSize, int maxSize) {
+		this(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize, 0, 1000) ; 
+	}
+	
+	protected  MidgardAbstractTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine, BlockState trunkFruit, int minSize, int maxSize, int minFloorHeight, int maxFloorHeight) {
 		super(BaseTreeFeatureConfig::deserialize);
 		
 		this.placeOn = placeOn ; 
@@ -109,6 +122,8 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 		
 		this.minSize = minSize ;
 		this.maxSize = maxSize ; 
+		this.minSpawnHeight = minFloorHeight ;
+		this.maxSpawnHeight = maxFloorHeight ; 
 		
 		this.logAxis = BlockHelper.getAxisProperty(this.log) ; 
 			
@@ -135,10 +150,28 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 		
 	}
 	
+	public boolean isNotAllowedSpawnHeight(BlockPos positionIn) {
+		int h = positionIn.getY() ; 
+		
+		Midgard.LOGGER.info( h  + " " + this.minSpawnHeight + " " + this.maxSpawnHeight ); 
+		
+		
+		
+		if(h > this.maxSpawnHeight || h < this.minSpawnHeight) 
+			return true ; 
+	
+		Midgard.LOGGER.info( "CAN SPAWN" ); 
+		return false ; 
+	}
+	
 	@Override
 	protected boolean place(IWorldGenerationReader generationReader, Random rand, BlockPos positionIn,
 			Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, MutableBoundingBox boundingBoxIn,
 			BaseTreeFeatureConfig configIn) {
+		
+		if(isNotAllowedSpawnHeight(positionIn)) 
+			return false ; 
+
 		return placeTree(changedLogs, changedLeaves, (IWorld)generationReader, rand, positionIn, boundingBoxIn ) ;
 	}
 

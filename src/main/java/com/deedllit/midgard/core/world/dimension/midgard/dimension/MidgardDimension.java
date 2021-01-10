@@ -94,7 +94,7 @@ public class MidgardDimension extends YggdrasilSurfaceDimension {
 		return true ; 
 	}
 	 
-	
+		
 	@Override
 	public float calculateCelestialAngle(long worldTime, float partialTicks) {		
 		double d0 = MathHelper.frac((double)worldTime / 24000.0D - 0.25D);

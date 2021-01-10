@@ -23,6 +23,9 @@ public class ChaparralSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig
 	public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise,
 			BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
 		
+		
+		double smoothNoise = noise + ((random.nextDouble() * (random.nextDouble() + 1)));
+		
 		SurfaceBuilderConfig layer1 ;
 		SurfaceBuilderConfig layer2 ; 
 		
@@ -34,9 +37,9 @@ public class ChaparralSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig
 			layer2 = SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG ;  
 		}
 		
-		if(noise > 2.5D) {
+		if(noise > 2.5D && smoothNoise >= 1.0D) {
 			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.STONE_STONE_GRAVEL_CONFIG);
-		} else if(noise > 1.2D) { 
+		} else if(noise > 1.35D) { 
 			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, layer2);			
 		} else {
 			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, layer1);			

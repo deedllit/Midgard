@@ -32,7 +32,9 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 			this.maxSize = 13;
 			this.log = BlockInit.PALM_LOG.get().getDefaultState();
 			this.leaves = BlockInit.PALM_LEAVES.get().getDefaultState();
-					
+			this.minSpawnHeight = 0 ;
+			this.maxSpawnHeight = 70 ; 
+			
 			this.placeOn = (world, pos) -> {
 				
 				Block cur = world.getBlockState(pos).getBlock();
@@ -48,7 +50,7 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 				
 		@Override
 		public MidgardPalmTreeFeature create() {
-			return new MidgardPalmTreeFeature(placeOn, replace, log, leaves, vine, alternativeLeaves, trunkFruit, minSize, maxSize, baseCarving, baseCarvingExtra, extraCavring);
+			return new MidgardPalmTreeFeature(placeOn, replace, log, leaves, vine, alternativeLeaves, trunkFruit, minSize, maxSize, minSpawnHeight, maxSpawnHeight, baseCarving, baseCarvingExtra, extraCavring );
 		}
 		
 		
@@ -63,8 +65,8 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 	protected boolean extraCavring ; 
 	
 	public MidgardPalmTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine,
-			BlockState trunkFruit, int minSize, int maxSize, double baseCarving, double baseCarvingExtra, boolean extraCavring) {
-		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize);
+			BlockState trunkFruit, int minSize, int maxSize, int minSpawnHeight, int maxSpawnHeight, double baseCarving, double baseCarvingExtra, boolean extraCavring) {
+		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize, minSpawnHeight, maxSpawnHeight);
 		
 		this.baseCarving = baseCarving ;
 		this.baseCarvingExtra = baseCarvingExtra ; 
@@ -76,8 +78,7 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 	@Override
 	protected boolean placeTree(Set<BlockPos> changedLogs, Set<BlockPos> changedLeaves, IWorld world,
 			Random rand, BlockPos positionIn, MutableBoundingBox boundingBoxIn) {
-
-		//Midgard.LOGGER.info("MidgardPalmTreeFeature - placeTree : " + this.baseCarving);
+		
 
 		//Move to ground and check for placement
 		BlockPos posStart = this.moveToGround(world, positionIn);
@@ -85,7 +86,9 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
             return false;
         }
         
-		
+        if(isNotAllowedSpawnHeight(posStart)) 
+			return false ; 
+        
 		int height = RandomHelper.getNextIntBetween(rand, this.minSize, this.maxSize) ; 		
 		
 		if (height < 8) {
@@ -125,8 +128,6 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 				lastPos = offsetPos.up(step).offset(dir, (int) Math.sqrt(curveOffset)) ; 
 				
 				this.placeLog(world, lastPos, changedLogs, boundingBoxIn);				
-
-
 				
 				curveOffset *= curveMultiplier;
 				

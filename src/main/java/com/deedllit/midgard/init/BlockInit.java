@@ -187,6 +187,21 @@ public class BlockInit {
 	public static final RegistryObject<Block> PAPAYA_EMERALD = BLOCKS.register("papaya_emerald",
 			() -> new PapayaFruitBlock(Block.Properties.from(Blocks.COCOA)));
 
+
+	//AUTUMNAL LEAVES
+	
+	public static final RegistryObject<Block> AUTUMNAL_BIRCH_LEAVES = BLOCKS.register("autumnal_birch_leaves",
+			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
+
+
+	//PETRIFIED
+	public static final RegistryObject<Block> PETRIFIED_LOG = BLOCKS.register("petrified_log",
+			() -> new RotatedPillarBlock(Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(2.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> PETRIFIED_WOOD = BLOCKS.register("petrified_wood",
+			() -> new RotatedPillarBlock(Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(2.0F).sound(SoundType.STONE)));
+
+	
 	//BANANA TREE
 
 	public static final RegistryObject<Block> BANANA_LOG = BLOCKS.register("banana_log",

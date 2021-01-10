@@ -28,6 +28,10 @@ public class SurfaceBuilderInit {
 	public static final SurfaceBuilder<SurfaceBuilderConfig> FLOATING_ISLAND_HILL = new FloatingIslandHillSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> ACIDIC_DEFAULT_SURFACE_BUILDER = new AciduricDefaultSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> RICE_FIELD = new RiceFieldSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> DUNE = new DuneSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> WAVE = new WaveSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> GINDELWALD = new GrindelwaldSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> BOHOL = new BoholSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	
 	
 	

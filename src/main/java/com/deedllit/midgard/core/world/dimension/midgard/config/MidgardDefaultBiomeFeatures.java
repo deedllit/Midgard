@@ -221,8 +221,40 @@ public class MidgardDefaultBiomeFeatures {
 	}
 	
 	
-	public static void addPalmTree(Biome biomeIn) {
+	public static void addTropicalBoholTree(Biome biomeIn) {
 		
+	}
+	
+	public static void addBoholTrees(Biome biomeIn) {		
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.BANANA_SMALL_BOHOL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+		
+		
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.PAPAYA_EMERALD_SMALL_BOHOL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+		
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.PAPAYA_SMALL_BOHOL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+		
+		
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.PLAM_SMALL_BOHOL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+
+		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		  FeatureInit.GREEN_PLAM_SMALL_BOHOL.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+	    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+	    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));	
+		}
+	
+	public static void addPalmTree(Biome biomeIn) {		
 	    biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
 	    		Feature.RANDOM_SELECTOR.withConfiguration(
 	    				new MultipleRandomFeatureConfig(

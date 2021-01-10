@@ -11,6 +11,7 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.LazyAreaLayerContext;
+import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
@@ -63,12 +64,13 @@ public class MidgardLayerUtil {
 	}
 	
 
+	
+	
+	
 
-	private static IAreaFactory<LazyArea> createEarthSea(LongFunction<IExtendedNoiseRandom<LazyArea>> contextFactory) {
-		IAreaFactory<LazyArea> earthSeaFactory = IslandLayer.INSTANCE.apply(contextFactory.apply(1));
-		//IAreaFactory<LazyArea> earthSeaFactory = (new BiomeLayerUtils()).apply(contextFactory.apply(200), parentLayer);
-
+	public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createEarthSea(LongFunction<C> contextFactory) {
 		//LAND AND SEA 
+		IAreaFactory<T> earthSeaFactory = MidgardIslandLayer.INSTANCE.apply(contextFactory.apply(1));
 		earthSeaFactory = ZoomLayer.FUZZY.apply(contextFactory.apply(2000L), earthSeaFactory);
 		earthSeaFactory = MidgardAddIslandLayer.INSTANCE.apply(contextFactory.apply(1L), earthSeaFactory);
 		earthSeaFactory = ZoomLayer.NORMAL.apply(contextFactory.apply(2001L), earthSeaFactory);
@@ -83,8 +85,21 @@ public class MidgardLayerUtil {
 		return earthSeaFactory;
 	}
 
-
-
+	
+	/*
+	public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createAreaFactories(WorldType worldType, MidgardverworldGenSettings settings, LongFunction<C> contextFactory) {
+		
+	}
+	*/
+	
+	
+	public static int getModdedBiomeSize(WorldType worldType, int original) {
+		net.minecraftforge.event.terraingen.WorldTypeEvent.BiomeSize event = new net.minecraftforge.event.terraingen.WorldTypeEvent.BiomeSize(
+				worldType, original);
+		net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event);
+		return event.getNewSize();
+	}
+	
 	public static IAreaFactory<LazyArea> repeat(long seed, IAreaTransformer1 parent, IAreaFactory<LazyArea> targetFactory,
 			int count, LongFunction<IExtendedNoiseRandom<LazyArea>> contextFactory) {
 
@@ -107,6 +122,9 @@ public class MidgardLayerUtil {
 		return biomeIn == WARM_OCEAN || biomeIn == LUKEWARM_OCEAN || biomeIn == OCEAN || biomeIn == COLD_OCEAN
 				|| biomeIn == FROZEN_OCEAN;
 	}
+
+
+
 
 
 }

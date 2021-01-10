@@ -26,5 +26,5 @@ public class MidgardGenSettings extends OverworldGenSettings{
 	public int getBedrockFloorHeight() {
 		return 0;
 	}
-	
+		
 }

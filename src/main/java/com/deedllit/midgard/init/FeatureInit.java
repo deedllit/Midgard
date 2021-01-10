@@ -81,6 +81,66 @@ public class FeatureInit {
 				.maxSize(22)
 				.create() ;  
 
+	
+	/*
+	 * BOHOL TREES 
+	 */
+	
+	public static Feature<BaseTreeFeatureConfig> BANANA_SMALL_BOHOL =
+			new MidgardPalmTreeFeature.Builder()
+				.log(BlockInit.BANANA_LOG.get().getDefaultState())
+				.leaves(BlockInit.BANANA_LEAVES.get().getDefaultState())
+				.minSize(8)
+				.maxSize(9)
+				.baseCarving(1.25D)
+				.extraCavring(true)
+				.maxSpawnHeight(68)
+				.create() ;  
+
+	public static Feature<BaseTreeFeatureConfig> PAPAYA_SMALL_BOHOL =
+			new MidgardPalmTreeFeature.Builder()
+				.log(BlockInit.PAPAYA_LOG.get().getDefaultState())
+				.leaves(BlockInit.PAPAYA_LEAVES.get().getDefaultState())
+				.trunkFruit(BlockInit.PAPAYA.get().getDefaultState())
+				.minSize(8)
+				.maxSize(9)
+				.baseCarving(1.25D)
+				.extraCavring(true)
+				.maxSpawnHeight(68)
+				.create() ;  
+
+	public static Feature<BaseTreeFeatureConfig> PAPAYA_EMERALD_SMALL_BOHOL =
+			new MidgardPalmTreeFeature.Builder()
+				.log(BlockInit.PAPAYA_LOG.get().getDefaultState())
+				.leaves(BlockInit.PAPAYA_LEAVES.get().getDefaultState())
+				.trunkFruit(BlockInit.PAPAYA_EMERALD.get().getDefaultState())
+				.minSize(8)
+				.maxSize(9)
+				.baseCarving(1.27D)
+				.extraCavring(true)
+				.maxSpawnHeight(68)
+				.create() ;  
+	
+	public static Feature<BaseTreeFeatureConfig> PLAM_SMALL_BOHOL =
+			new MidgardPalmTreeFeature.Builder()
+				.log(BlockInit.PALM_LOG.get().getDefaultState())
+				.leaves(BlockInit.PALM_LEAVES.get().getDefaultState())
+				.baseCarving(1.35D)
+				.extraCavring(false)
+				.maxSpawnHeight(68)
+				.create() ;  
+	
+	public static Feature<BaseTreeFeatureConfig> GREEN_PLAM_SMALL_BOHOL =
+			new MidgardPalmTreeFeature.Builder()
+				.log(BlockInit.GREEN_PALM_LOG.get().getDefaultState())
+				.leaves(BlockInit.GREEN_PALM_LEAVES.get().getDefaultState())
+				.maxSpawnHeight(68)
+				.create() ;
+	
+	/*
+	 * PALM TREES
+	 */
+	
 	public static Feature<BaseTreeFeatureConfig> BANANA_SMALL =
 			new MidgardPalmTreeFeature.Builder()
 				.log(BlockInit.BANANA_LOG.get().getDefaultState())

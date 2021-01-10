@@ -7,6 +7,7 @@ import com.deedllit.midgard.Midgard;
 import com.deedllit.midgard.core.world.dimension.midgard.config.VanillaMidgardWorldGenSettings;
 import com.deedllit.midgard.core.world.dimension.midgard.generator.layer.*;
 import com.deedllit.midgard.init.BiomeInit;
+import com.deedllit.midgard.world.gen.worldtype.WorldTypeMidgard;
 import com.google.common.collect.ImmutableSet;
 
 import net.minecraft.util.ResourceLocation;
@@ -33,6 +34,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class MidgardBiomeProvider extends BiomeProvider {
 
+	
 	public static Biome[] dimensionBiomes = new Biome[] {
 			ForgeRegistries.BIOMES.getValue(new ResourceLocation(Midgard.MOD_ID + ":vanilla_badlands_biome")),
 			ForgeRegistries.BIOMES.getValue(new ResourceLocation(Midgard.MOD_ID + ":vanilla_badlands_plateau_biome")),
@@ -115,7 +117,8 @@ public class MidgardBiomeProvider extends BiomeProvider {
 			ForgeRegistries.BIOMES.getValue(new ResourceLocation(Midgard.MOD_ID + ":midgard_thousand_lakes")),
 			ForgeRegistries.BIOMES.getValue(new ResourceLocation(Midgard.MOD_ID + ":midgard_tropical_island")),
 			ForgeRegistries.BIOMES.getValue(new ResourceLocation(Midgard.MOD_ID + ":midgard_volcanic_island")) };
-
+	
+	
 	private static final Set<Biome> biomeList = ImmutableSet.of(
 			BiomeInit.VANILLA_BADLANDS_BIOME.get(),
 			BiomeInit.VANILLA_BADLANDS_PLATEAU_BIOME.get(), 
@@ -198,19 +201,69 @@ public class MidgardBiomeProvider extends BiomeProvider {
 			BiomeInit.MIDGARD_TROPICAL_ISLAND_BIOME.get(), 
 			BiomeInit.MIDGARD_VOLCANIC_ISLAND_BIOME.get());
 
+	
 	private final Layer genBiomes;
 	double biomeSize = 32.0d;
 
-	public MidgardBiomeProvider(World world) {
+	public MidgardBiomeProvider(World world) {		
 		super(biomeList);
 
 		//Layer[] aLayer = buildWorld(world);
 		//this.genBiomes = aLayer[0];
 		
-		this.genBiomes = buildWorld2(world);
+		this.genBiomes = buildWorld3(world);
 		
 	}
 
+	private Layer buildWorld3(World world) {
+		VanillaMidgardWorldGenSettings setting = new VanillaMidgardWorldGenSettings() ;
+		
+		WorldType worldType = world.getWorldType() ;
+		long seed = world.getSeed() ; 
+        int biomeSize = 4;
+        int riverSize = 1;
+		
+		LongFunction<IExtendedNoiseRandom<LazyArea>> contextFactory = l -> new LazyAreaLayerContext(15, seed, l);
+
+        IAreaFactory<LazyArea> earthSea = MidgardIslandLayer.INSTANCE.apply(contextFactory.apply(1L));
+        earthSea = ZoomLayer.FUZZY.apply(contextFactory.apply(2000L), earthSea);
+        earthSea = MidgardAddIslandLayer.INSTANCE.apply(contextFactory.apply(1L), earthSea);
+        earthSea = ZoomLayer.NORMAL.apply(contextFactory.apply(2001L), earthSea);
+        earthSea = MidgardAddIslandLayer.INSTANCE.apply(contextFactory.apply(2L), earthSea);
+        earthSea = MidgardAddIslandLayer.INSTANCE.apply(contextFactory.apply(50L), earthSea);
+        earthSea = MidgardAddIslandLayer.INSTANCE.apply(contextFactory.apply(70L), earthSea);
+        earthSea = MidgardRemoveTooMuchOceanLayer.INSTANCE.apply(contextFactory.apply(2L), earthSea);
+        
+        IAreaFactory<LazyArea> earthSea2 = OceanLayer.INSTANCE.apply(contextFactory.apply(2L)); 
+        earthSea2 = MidgardLayerUtil.repeat(2001L, ZoomLayer.NORMAL, earthSea2, 6, contextFactory);
+        
+        earthSea = MidgardAddSnowLayer.INSTANCE.apply(contextFactory.apply(2L), earthSea);
+        earthSea = MidgardAddIslandLayer.INSTANCE.apply(contextFactory.apply(3L), earthSea);
+        earthSea = MidgardEdgeLayer.CoolWarm.INSTANCE.apply(contextFactory.apply(2L), earthSea);
+        earthSea = MidgardEdgeLayer.HeatIce.INSTANCE.apply(contextFactory.apply(2L), earthSea);
+        //earthSea = MidgardEdgeLayer.Special.INSTANCE.apply(contextFactory.apply(3L), earthSea);
+        earthSea = ZoomLayer.NORMAL.apply(contextFactory.apply(2002L), earthSea);
+        earthSea = ZoomLayer.NORMAL.apply(contextFactory.apply(2003L), earthSea);
+        earthSea = MidgardAddIslandLayer.INSTANCE.apply(contextFactory.apply(4L), earthSea);
+        earthSea = MidgardAddMushroomIslandLayer.INSTANCE.apply(contextFactory.apply(5L), earthSea);
+        earthSea = MidgardDeepOceanLayer.INSTANCE.apply(contextFactory.apply(4L), earthSea);
+        earthSea = MidgardLayerUtil.repeat(1000L, ZoomLayer.NORMAL, earthSea, 0, contextFactory);
+        
+        int finalBiomeSize = world.getWorldType() == WorldType.LARGE_BIOMES ? 6 : biomeSize;
+        finalBiomeSize = MidgardLayerUtil.getModdedBiomeSize(world.getWorldType(), finalBiomeSize);
+        
+        
+        IAreaFactory<LazyArea> riversStart = MidgardLayerUtil.repeat(1000L, ZoomLayer.NORMAL, earthSea, 0, contextFactory);
+        riversStart = MidgardStartRiverLayer.INSTANCE.apply((IExtendedNoiseRandom)contextFactory.apply(100L), riversStart);
+        
+        //IAreaFactory<LazyArea> rivers = world.getBiomeLayer(earthSea, setting, contextFactory) ;
+        IAreaFactory<LazyArea> biomes = (new MidgardBiomeLayer(worldType, setting.getBiomeId())).apply(contextFactory.apply(200L), earthSea);
+        
+        return new Layer(biomes) ;
+        
+	}
+	
+	
 	private Layer buildWorld2(World world) {
 		VanillaMidgardWorldGenSettings setting = new VanillaMidgardWorldGenSettings() ;
 		
@@ -297,7 +350,8 @@ public class MidgardBiomeProvider extends BiomeProvider {
 		
         //LayerUtil
 		LongFunction<IExtendedNoiseRandom<LazyArea>> contextFactory = l -> new LazyAreaLayerContext(15, seed, l);
-		IAreaFactory<LazyArea> parentLayer = IslandLayer.INSTANCE.apply(contextFactory.apply(1));
+				
+		IAreaFactory<LazyArea> parentLayer = IslandLayer.INSTANCE.apply(contextFactory.apply(1L));
 		IAreaFactory<LazyArea> landSeaFactory = (new BiomeLayerUtils()).apply(contextFactory.apply(200), parentLayer);
 
 		//LAND AND SEA 

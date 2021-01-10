@@ -53,9 +53,10 @@ public class BiomeInit {
 	public static final RegistryObject<Biome> VANILLA_BIRCH_FOREST_HILLS_BIOME = 
 			BIOMES.register("vanilla_birch_forest_hills_biome", () -> new VanillaBirchForestHillsBiome());
 
+	
 	public static final RegistryObject<Biome> VANILLA_COLD_OCEAN_BIOME = 
 			BIOMES.register("vanilla_cold_ocean_biome", () -> new VanillaColdOceanBiome());
-
+	
 	public static final RegistryObject<Biome> VANILLA_DARK_FOREST_BIOME = 
 			BIOMES.register("vanilla_dark_forest_biome", () -> new VanillaDarkForestBiome());
 
@@ -239,7 +240,18 @@ public class BiomeInit {
  * MIDGARD
  */
 
+	public static final RegistryObject<Biome> MIDGARD_BOHOL_BIOME = 
+			BIOMES.register("midgard_bohol_biome", () -> new MidgardBoholBiome());	
+
+	public static final RegistryObject<Biome> MIDGARD_ALPINE_GRINDELWALD_BIOME = 
+			BIOMES.register("midgard_alpine_grindelwald_biome", () -> new MidgardAlpineGrindelwaldBiome());	
+
+	public static final RegistryObject<Biome> DESERT_WAVE = 
+			BIOMES.register("midgard_desert_wave", () -> new MidgardDesertWave());	
 	
+	public static final RegistryObject<Biome> DESERT_DUNE = 
+			BIOMES.register("midgard_desert_dune", () -> new MidgardDesertDune());	
+
 	public static final RegistryObject<Biome> MIDGARD_RICE_PLAINS_BIOME = 
 		BIOMES.register("midgard_rice_plains_biome", () -> new MidgardRicePlainsBiome());	
 

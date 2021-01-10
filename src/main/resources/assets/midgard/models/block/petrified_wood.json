@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "midgard:blocks/petrified_log",
+        "side": "midgard:blocks/petrified_log"
+    }
+}
