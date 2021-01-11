@@ -240,6 +240,9 @@ public class BiomeInit {
  * MIDGARD
  */
 
+	public static final RegistryObject<Biome> MIDGARD_AMAZONIA_BIOME = 
+			BIOMES.register("midgard_amazonia_biome", () -> new MidgardAmazoniaBiome());	
+
 	public static final RegistryObject<Biome> MIDGARD_BOHOL_BIOME = 
 			BIOMES.register("midgard_bohol_biome", () -> new MidgardBoholBiome());	
 

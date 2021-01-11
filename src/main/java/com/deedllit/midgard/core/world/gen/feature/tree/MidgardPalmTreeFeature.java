@@ -33,7 +33,7 @@ public class MidgardPalmTreeFeature extends MidgardAbstractTreeFeature {
 			this.log = BlockInit.PALM_LOG.get().getDefaultState();
 			this.leaves = BlockInit.PALM_LEAVES.get().getDefaultState();
 			this.minSpawnHeight = 0 ;
-			this.maxSpawnHeight = 70 ; 
+			this.maxSpawnHeight = 1000 ; 
 			
 			this.placeOn = (world, pos) -> {
 				

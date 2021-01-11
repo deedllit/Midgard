@@ -220,10 +220,17 @@ public class MidgardDefaultBiomeFeatures {
 
 	}
 	
-	
-	public static void addTropicalBoholTree(Biome biomeIn) {
-		
+	public static void addMoutainSpruceTrees(Biome biomeIn) {
+	    biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+	    		Feature.RANDOM_SELECTOR.withConfiguration(
+	    				new MultipleRandomFeatureConfig(
+	    						ImmutableList.of(
+	    								FeatureInit.NORWAY_SPRUCE_SMALL_MOUTAIN.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withChance(0.333333333F),
+	    								FeatureInit.BLUE_SPRUCE_SMALL_MOUTAIN.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withChance(0.1F)								
+	    								), 
+	    						FeatureInit.VANILLA_SPRUCE_SMALL_MOUTAIN.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
 	}
+	
 	
 	public static void addBoholTrees(Biome biomeIn) {		
 		biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 

@@ -30,7 +30,6 @@ public class MidgardAlpineGrindelwaldBiome extends MidgardBiome {
 	    		  .waterFogColor(329011)
 	    		  .parent((String) null));
 	      
-	      this.addStructure(Feature.VILLAGE.withConfiguration(new VillageConfig("village/plains/town_centers", 3)));
 	      this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
 	      this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 
@@ -39,9 +38,9 @@ public class MidgardAlpineGrindelwaldBiome extends MidgardBiome {
 	      DefaultBiomeFeatures.addLakes(this);
 	      DefaultBiomeFeatures.addMonsterRooms(this);
 	      MidgardDefaultBiomeFeatures.addSurfaceStones(this);
+	      MidgardDefaultBiomeFeatures.addMoutainSpruceTrees(this) ; 
 	      MidgardDefaultBiomeFeatures.addAlpinaFlowers(this);
 	      MidgardDefaultBiomeFeatures.addDenseGrass(this);
-	      //MidgardDefaultBiomeFeatures.addFewConifers(this);
 	      DefaultBiomeFeatures.addStoneVariants(this);
 	      DefaultBiomeFeatures.addOres(this);
 	      DefaultBiomeFeatures.addSedimentDisks(this);

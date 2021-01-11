@@ -37,6 +37,16 @@ public class FeatureInit {
 				.maxSize(36)
 				.create() ;  
 	
+
+	public static Feature<BaseTreeFeatureConfig> BLUE_SPRUCE_SMALL_MOUTAIN =
+			new MidgardConiferTreeFeature.Builder()
+				.log(BlockInit.BLUE_SPRUCE_LOG.get().getDefaultState())
+				.leaves(BlockInit.BLUE_SPRUCE_LEAVES.get().getDefaultState())
+				.minSpawnHeight(120)
+				.maxSpawnHeight(165)
+				.create() ;  
+
+	
 	public static Feature<BaseTreeFeatureConfig> BLUE_SPRUCE_SMALL =
 			new MidgardConiferTreeFeature.Builder()
 				.log(BlockInit.BLUE_SPRUCE_LOG.get().getDefaultState())
@@ -58,6 +68,22 @@ public class FeatureInit {
 				.minSize(16)
 				.maxSize(22)
 				.create() ;  
+	
+	public static Feature<BaseTreeFeatureConfig> VANILLA_SPRUCE_SMALL_MOUTAIN =
+			new MidgardConiferTreeFeature.Builder()
+				.log(Blocks.SPRUCE_LOG.getDefaultState())
+				.leaves(Blocks.SPRUCE_LEAVES.getDefaultState())
+				.minSpawnHeight(110)
+				.maxSpawnHeight(165)
+				.create() ; 
+	
+	public static Feature<BaseTreeFeatureConfig> NORWAY_SPRUCE_SMALL_MOUTAIN =
+			new MidgardConiferTreeFeature.Builder()
+				.log(BlockInit.NORWAY_SPRUCE_LOG.get().getDefaultState())
+				.leaves(BlockInit.NORWAY_SPRUCE_LEAVES.get().getDefaultState())
+				.minSpawnHeight(120)
+				.maxSpawnHeight(165)
+				.create() ; 
 	
 	public static Feature<BaseTreeFeatureConfig> NORWAY_SPRUCE_SMALL =
 			new MidgardConiferTreeFeature.Builder()

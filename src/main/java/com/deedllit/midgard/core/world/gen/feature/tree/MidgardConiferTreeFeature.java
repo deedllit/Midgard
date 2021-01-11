@@ -33,16 +33,13 @@ public class MidgardConiferTreeFeature extends MidgardAbstractTreeFeature {
 			this.vine = Blocks.VINE.getDefaultState();
 			this.trunkSize = 1;
 			this.increaseTrunk = false ; 
+			this.minSpawnHeight = 0 ;
+			this.maxSpawnHeight = 1000 ; 
 		}
-
-		
-		//public int trunkSize(int trunkSize) {this.trunkSize = trunkSize; return this.trunkSize; }
-		//public boolean increaseTrunk(boolean increaseTrunk) {this.increaseTrunk = increaseTrunk; return this.increaseTrunk; }
-
 		
 		@Override
 		public MidgardConiferTreeFeature create() {
-			return new MidgardConiferTreeFeature(placeOn, replace, log, leaves, vine, alternativeLeaves, trunkFruit, minSize, maxSize, trunkSize, increaseTrunk);
+			return new MidgardConiferTreeFeature(placeOn, replace, log, leaves, vine, alternativeLeaves, trunkFruit, minSize, maxSize, minSpawnHeight, maxSpawnHeight, trunkSize, increaseTrunk);
 		}
 
 	}
@@ -51,8 +48,8 @@ public class MidgardConiferTreeFeature extends MidgardAbstractTreeFeature {
 	private boolean increaseTrunk = false;
 
 	public MidgardConiferTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine,
-			BlockState trunkFruit, int minSize, int maxSize, int trunkSize, boolean increaseTrunk) {
-		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize);
+			BlockState trunkFruit, int minSize, int maxSize, int minSpawnHeight, int maxSpawnHeight, int trunkSize, boolean increaseTrunk) {
+		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize, minSpawnHeight, maxSpawnHeight);
 		
 		this.increaseTrunk = increaseTrunk ; 
 		this.trunkSize = trunkSize;

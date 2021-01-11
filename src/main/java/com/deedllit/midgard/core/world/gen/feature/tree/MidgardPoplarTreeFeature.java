@@ -27,12 +27,13 @@ public class MidgardPoplarTreeFeature extends MidgardAbstractTreeFeature {
 			this.maxSize = 28;
 			this.log = BlockInit.BLACK_POPLAR_LOG.get().getDefaultState();
 			this.leaves = BlockInit.PALM_LEAVES.get().getDefaultState();
-					
+			this.minSpawnHeight = 0 ;
+			this.maxSpawnHeight = 1000 ; 
+			
 			this.placeOn = (world, pos) -> {
 				
 				Block cur = world.getBlockState(pos).getBlock();
-				return(world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING) || 
-						(BlockTags.SAND.contains(cur))) ; 
+				return(world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING)) ; 
 			} ; 
 			
 		}
@@ -40,14 +41,14 @@ public class MidgardPoplarTreeFeature extends MidgardAbstractTreeFeature {
 				
 		@Override
 		public MidgardPoplarTreeFeature create() {
-			return new MidgardPoplarTreeFeature(placeOn, replace, log, leaves, vine, alternativeLeaves, trunkFruit, minSize, maxSize);
+			return new MidgardPoplarTreeFeature(placeOn, replace, log, leaves, vine, alternativeLeaves, trunkFruit, minSize, maxSize, minSpawnHeight, maxSpawnHeight);
 		}
 		
 	}
 	
 	public MidgardPoplarTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine,
-			BlockState trunkFruit, int minSize, int maxSize) {
-		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize);
+			BlockState trunkFruit, int minSize, int maxSize, int minSpawnHeight, int maxSpawnHeight) {
+		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize, minSpawnHeight, maxSpawnHeight);
 		
 	}
 	

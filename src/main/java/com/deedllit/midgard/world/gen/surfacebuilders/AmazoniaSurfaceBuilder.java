@@ -9,9 +9,7 @@ import com.deedllit.midgard.util.shapes.SandWaves;
 import com.deedllit.midgard.world.gen.noise.FastNoiseLite;
 import com.deedllit.midgard.world.gen.noise.FastNoiseLite.CellularDistanceFunction;
 import com.deedllit.midgard.world.gen.noise.FastNoiseLite.CellularReturnType;
-import com.deedllit.midgard.world.gen.noise.FastNoiseLite.DomainWarpType;
 import com.deedllit.midgard.world.gen.noise.FastNoiseLite.FractalType;
-import com.deedllit.midgard.world.gen.noise.FastNoiseLite.NoiseType;
 import com.deedllit.midgard.world.gen.noise.VoronoiGenerator;
 import com.deedllit.midgard.world.gen.noise.VoronoiGenerator2;
 import com.mojang.datafixers.Dynamic;
@@ -29,11 +27,11 @@ import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
-public class WaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>  {
+public class AmazoniaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>  {
 	
 	private FastNoiseLite noiseLite = null ; 
 	
-	public WaveSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> configFactory) {
+	public AmazoniaSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> configFactory) {
 		super(configFactory);
 	}
 
@@ -47,41 +45,13 @@ public class WaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>  {
 		
 	    BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 		
-	
 		if(this.noiseLite == null) {
 	        SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
 	        this.noiseLite = new FastNoiseLite((int) seed);	
-
-	        this.noiseLite.SetNoiseType(NoiseType.OpenSimplex2S);
-	        this.noiseLite.SetFrequency(0.03f);
-	        this.noiseLite.SetFractalType(FractalType.PingPong);
-	        this.noiseLite.SetFractalOctaves(4);
-	        this.noiseLite.SetFractalLacunarity(2.0f);
-	        this.noiseLite.SetFractalGain(0.5f);
-	        this.noiseLite.SetFractalWeightedStrength(-0.40f);
-	        this.noiseLite.SetFractalPingPongStrength(1.0f);
-	        this.noiseLite.SetCellularDistanceFunction(CellularDistanceFunction.Euclidean);
-	        this.noiseLite.SetCellularReturnType(CellularReturnType.Distance2Mul);
-	        this.noiseLite.SetCellularJitter(1.25f);
-	        this.noiseLite.SetDomainWarpType(DomainWarpType.OpenSimplex2);
-	        this.noiseLite.SetDomainWarpAmp(15.0f);
-	        
-	        /*
-	        this.noiseLite.SetNoiseType(NoiseType.Cellular);
-	        this.noiseLite.SetFrequency(0.1f);
-	        this.noiseLite.SetFractalType(FractalType.PingPong);
-	        this.noiseLite.SetFractalOctaves(4);
-	        this.noiseLite.SetFractalLacunarity(2.0f);
-	        this.noiseLite.SetFractalGain(0.5f);
-	        this.noiseLite.SetFractalWeightedStrength(0);
-	        this.noiseLite.SetFractalPingPongStrength(2.0f);
-	        this.noiseLite.SetCellularDistanceFunction(CellularDistanceFunction.Euclidean);
-	        this.noiseLite.SetCellularReturnType(CellularReturnType.Distance2Mul);
-	        this.noiseLite.SetCellularJitter(2.25f);
-	        */
-	        
-	    	/*
 	    	this.noiseLite.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2S);
+	    	
+	    	
+	    	/*
 	        this.noiseLite.SetFractalType(FractalType.Ridged);
 	        this.noiseLite.SetFrequency(0.06f);
 	        this.noiseLite.SetFractalOctaves(1);
@@ -90,9 +60,27 @@ public class WaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>  {
 	        this.noiseLite.SetFractalWeightedStrength(0.5f);
 	        this.noiseLite.SetCellularDistanceFunction(CellularDistanceFunction.Hybrid);
 	        this.noiseLite.SetCellularReturnType(CellularReturnType.CellValue);
-	    	 */
+	    	*/
+	        
+	    	
+	    	this.noiseLite.SetFractalType(FractalType.PingPong);
+	        this.noiseLite.SetFrequency(0.008f);
+	        this.noiseLite.SetFractalOctaves(1);
+	        this.noiseLite.SetFractalLacunarity(2.0f);
+	        this.noiseLite.SetFractalGain(0.9f);
+	        this.noiseLite.SetFractalWeightedStrength(0.5f);
+	        this.noiseLite.SetCellularDistanceFunction(CellularDistanceFunction.Hybrid);
+	        this.noiseLite.SetCellularReturnType(CellularReturnType.CellValue);
+	    	this.noiseLite.SetFractalPingPongStrength(2.0f);
+			
 
-		}		
+
+	    	//this.noiseLite.SetNoiseType(FastNoiseLite.NoiseType.Cellular);
+	    	//this.noiseLite.SetFrequency(0.02f);
+	    	//this.noiseLite.SetCellularDistanceFunction(CellularDistanceFunction.EuclideanSq);
+	    	//this.noiseLite.SetCellularReturnType(CellularReturnType.Distance2Add);
+		}
+		
 
 	    
 		BlockState test ;
@@ -103,14 +91,6 @@ public class WaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>  {
 		
 		int mX = x / 16 ; 
 		int mZ = z / 16 ; 
-		int mX32 = x / 32 ; 
-		int mZ32 = z / 32 ; 
-		int mX64 = x / 64 ; 
-		int mZ64 = z / 64 ; 
-		
-		
-		int x2 = x / 2 ;
-		int z2 = z / 2;
 		
 		//double n = 0.5 ; 
 		//double coff = 10 / n ; 
@@ -118,58 +98,22 @@ public class WaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>  {
 		double n = -0.15 ; 
 		double coff = 2.85 ; 
 		
-        float h1 = (float) biomeIn.INFO_NOISE.noiseAt(mX32 * 0.225D, mZ * 0.125D, false) ;  	
-        float h2 = (float) biomeIn.INFO_NOISE.noiseAt(mX * 0.125, mZ32 * 0.225D, false) ;	
-		float dX = (float) biomeIn.INFO_NOISE.noiseAt(mX64 * 0.225D, z * 0.125D, false) / 10;		
-		float dZ = (float) biomeIn.INFO_NOISE.noiseAt(x * 0.125, mZ64 * 0.225D, false) / 10;		
+        float h1 = (float) biomeIn.INFO_NOISE.noiseAt(mX * 0.225D, mZ * 0.125D, false) ;  	
+        float h2 = (float) biomeIn.INFO_NOISE.noiseAt(mX * 0.125, mZ * 0.225D, false) ;	
+		float dX = (float) biomeIn.INFO_NOISE.noiseAt(x * 0.225D, z * 0.125D, false) / 10;		
+		float dZ = (float) biomeIn.INFO_NOISE.noiseAt(x * 0.125, z * 0.225D, false) / 10;		
 
-		h1 += dX - h2 ; 
-		h2 += dZ - h1; 
-
-		//h1 = 0 ;
-		//h2 = 0 ;
-		
-		double d1 = Math.sin(x2 / (1.18 + h1) ) * Math.cos(z2 / (1.05 + h2)) ; 
-		double d2 = Math.tan(x2 / (1.06 + h1) ) * Math.sin(z2 / (1.13 + h2)) ;
-		double d3 = Math.cos(x2 / (1.03 + h1) ) * Math.tan(z2 / (1.03 + h2)) ;
-		double d ; 
-		
-		d = Math.max(d3,  d2) ; 
-		d = Math.min(d1, d) ; 
-		
-		//d = Math.max(d,  d2) ; 
-		//d = Math.max(d,  d3) ; 
-		
-		//d = (d + d2) / 2 ;
-		
-		/*
-		if(d > 0) {
-			d = 0 ; 
-		}
-		*/
-		
-		//double d = Math.sin(x2 / (1.18 + h1) ) * Math.cos(z2 / (1.05 + h2)) ; 
-		double dNoise = this.noiseLite.GetNoise(x2, z2) ;
+		h1 += dX ; 
+		h2 += dZ ; 
+        h1 *= 2  ; 
+        h2 *= 2 ; 
+        
+        
+		double d = this.noiseLite.GetNoise(x + h1, z + h2) ;
 
 		
-		if(d > 1) {
-			d = Math.abs(dNoise) ; 
-		} else {
-			
-			/*
-			if(dNoise > 0)
-				d = dNoise ; 
-			*/
-			
-			if(dNoise > 0)
-				d = (d + dNoise) / 2 ; 
-		}
-		
-		/*
-		if(d > 0)
-			d = 0 ;
-		*/
-		
+		//Midgard.LOGGER.info( d );		
+
 		
 		blockpos$mutable.setPos(x, startHeight, z);
 
@@ -197,14 +141,33 @@ public class WaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>  {
         
         
         blockpos$mutable.setPos(x, floor - 1, z);
+
+        
+        /*
+        d = d * -1  ; 
+        if( d > 0.85) {
+        	d = d - 1 ; 
+        }
+        */
+        
+        /*
+        if(d > 0 && d < 0.3) {
+        	d = d + 0.5 ; 
+        } else if(d < 0) {
+        	d = d + 0.15 ; 
+        }
+        */
+        
+		//double height = d * coff ; 
+
+        
+        if(d < 0 && d > -0.5) {
+        	d = 0 ;
+        }
         
         
-        if(d > 0.5)
-        	d = 0.5 + (d/2) ; 
-        
-        
-        double height = d * 3.25 ; 
-        //double height = d ; 
+        double height = d * 2.85 ; 
+        //double height = d * 1.85 ; 
 
 		if(height >= 0) {
 			
@@ -224,7 +187,6 @@ public class WaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>  {
 				chunkIn.setBlockState(blockpos$mutable, defaultFluid, false);
 				blockpos$mutable.move(Direction.DOWN) ; 
 			}  			
-			
 			
 			//blockpos$mutable.move(Direction.UP) ; 							
 			//chunkIn.setBlockState(blockpos$mutable, defaultFluid, false);

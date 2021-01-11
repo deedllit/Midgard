@@ -127,10 +127,7 @@ public class WaveSurfaceBuilder8 extends SurfaceBuilder<SurfaceBuilderConfig>  {
 
 		double dX = biomeIn.INFO_NOISE.noiseAt(x * 0.225D, z * 0.125D, false) / 10;		
 		double dZ = biomeIn.INFO_NOISE.noiseAt(x * 0.125, z * 0.225D, false) / 10;		
-				
-		
-		
-		
+					
 		height = 0 ;
 		height = dX + dZ ; 
 

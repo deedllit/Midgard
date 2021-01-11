@@ -18,7 +18,7 @@ public class MidgardBasicTreeFeature extends MidgardAbstractTreeFeature {
 	public static class Builder extends InnerBuilder<Builder, MidgardBasicTreeFeature> {
         @Override
         public MidgardBasicTreeFeature create() {
-            return new MidgardBasicTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.alternativeLeaves, this.vine, this.trunkFruit, this.minSize, this.maxSize);
+            return new MidgardBasicTreeFeature(this.placeOn, this.replace, this.log, this.leaves, this.alternativeLeaves, this.vine, this.trunkFruit, this.minSize, this.maxSize, this.minSpawnHeight, this.maxSpawnHeight);
         }
     }
 
@@ -36,13 +36,16 @@ public class MidgardBasicTreeFeature extends MidgardAbstractTreeFeature {
             
         	this.minSize = 4 ;         	
         	this.maxSize = 7 ; 
-        	        	
+			this.minSpawnHeight = 0 ;
+			this.maxSpawnHeight = 1000 ; 
+  
+        	
         }
     }
     
     public MidgardBasicTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine, BlockState trunkFruit,
-			int minSize, int maxSize) {
-		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize);
+			int minSize, int maxSize, int minSpawnHeight, int maxSpawnHeight) {
+		super(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize, minSpawnHeight, maxSpawnHeight);
 		
 	}
     

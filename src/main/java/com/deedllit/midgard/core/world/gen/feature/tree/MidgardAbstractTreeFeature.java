@@ -102,10 +102,12 @@ public abstract class MidgardAbstractTreeFeature extends AbstractTreeFeature<Bas
 	protected int maxSpawnHeight ; 
 	
 	protected IProperty logAxis ; 
-		
+	
+	/*
 	protected  MidgardAbstractTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine, BlockState trunkFruit, int minSize, int maxSize) {
 		this(placeOn, replace, log, leaves, alternativeLeaves, vine, trunkFruit, minSize, maxSize, 0, 1000) ; 
 	}
+	*/
 	
 	protected  MidgardAbstractTreeFeature(IBlockPosQuery placeOn, IBlockPosQuery replace, BlockState log, BlockState leaves, BlockState alternativeLeaves, BlockState vine, BlockState trunkFruit, int minSize, int maxSize, int minFloorHeight, int maxFloorHeight) {
 		super(BaseTreeFeatureConfig::deserialize);
