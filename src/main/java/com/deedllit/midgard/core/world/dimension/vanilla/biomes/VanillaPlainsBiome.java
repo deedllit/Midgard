@@ -28,6 +28,12 @@ public class VanillaPlainsBiome extends Biome {
 	    		  .waterFogColor(329011)
 	    		  .parent((String)null));
 	
+	      
+		  this.addStructure(FeatureInit.RUN_DOWN_HOUSE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+		  this.addStructure(FeatureInit.BAHAY_KUBO_HUT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+		  this.addStructure(FeatureInit.MANGROVE_WITCH.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			
+	      
 	      this.addStructure(Feature.VILLAGE.withConfiguration(new VillageConfig("village/plains/town_centers", 6)));
 	      this.addStructure(Feature.PILLAGER_OUTPOST.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	      this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));

@@ -3,6 +3,7 @@ package com.deedllit.midgard.core.world.dimension.midgard.biomes;
 import com.deedllit.midgard.api.enums.MidgardClimate;
 import com.deedllit.midgard.core.world.biome.MidgardBiome;
 import com.deedllit.midgard.core.world.dimension.midgard.config.MidgardDefaultBiomeFeatures;
+import com.deedllit.midgard.init.FeatureInit;
 import com.deedllit.midgard.init.SurfaceBuilderInit;
 import com.google.common.collect.ImmutableList;
 
@@ -41,6 +42,7 @@ public class MidgardTropicalIslandBiome extends MidgardBiome {
 	    		  .waterFogColor(270131)
 	    		  .parent("vanilla_deep_warm_ocean_biome"));
 	      
+		  this.addStructure(FeatureInit.BAHAY_KUBO_HUT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	      this.addStructure(Feature.OCEAN_RUIN.withConfiguration(new OceanRuinConfig(OceanRuinStructure.Type.WARM, 0.3F, 0.9F)));
 	      this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
 	      this.addStructure(Feature.SHIPWRECK.withConfiguration(new ShipwreckConfig(false)));
@@ -72,6 +74,8 @@ public class MidgardTropicalIslandBiome extends MidgardBiome {
 	      DefaultBiomeFeatures.addTallSeagrassLush(this);
 	      //DefaultBiomeFeatures.addSeagrass(this);
 	      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEA_PICKLE.withConfiguration(new CountConfig(20)).withPlacement(Placement.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceConfig(16))));
+	     
+	      //this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureInit.MIDGARD_BAHAY_KUBO.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(1000))));
 
 	      
 	      DefaultBiomeFeatures.addFreezeTopLayer(this);

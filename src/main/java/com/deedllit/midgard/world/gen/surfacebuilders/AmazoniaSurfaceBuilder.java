@@ -64,13 +64,13 @@ public class AmazoniaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 	        
 	    	
 	    	this.noiseLite.SetFractalType(FractalType.PingPong);
-	        this.noiseLite.SetFrequency(0.008f);
-	        this.noiseLite.SetFractalOctaves(1);
+	        this.noiseLite.SetFrequency(0.010f);
+	        this.noiseLite.SetFractalOctaves(2);
 	        this.noiseLite.SetFractalLacunarity(2.0f);
 	        this.noiseLite.SetFractalGain(0.9f);
-	        this.noiseLite.SetFractalWeightedStrength(0.5f);
-	        this.noiseLite.SetCellularDistanceFunction(CellularDistanceFunction.Hybrid);
-	        this.noiseLite.SetCellularReturnType(CellularReturnType.CellValue);
+	        this.noiseLite.SetFractalWeightedStrength(1.0f);
+	        //this.noiseLite.SetCellularDistanceFunction(CellularDistanceFunction.Hybrid);
+	        //this.noiseLite.SetCellularReturnType(CellularReturnType.CellValue);
 	    	this.noiseLite.SetFractalPingPongStrength(2.0f);
 			
 
@@ -83,11 +83,8 @@ public class AmazoniaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 		
 
 	    
-		BlockState test ;
 		
 	    int floor = 62 ; 
-		int i = x & 15 ;
-		int j = z & 15 ;
 		
 		int mX = x / 16 ; 
 		int mZ = z / 16 ; 
@@ -134,51 +131,49 @@ public class AmazoniaSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
         }
 
         
+        //for(int h = blockpos$mutable.getY() ; h >= floor ; h--) {
+    	//		chunkIn.setBlockState(blockpos$mutable, Blocks.AIR.getDefaultState(), false);        	
+		//	blockpos$mutable.move(Direction.DOWN) ;         	
+        //}
+
+        
+        
+        
+        double height = d * coff ; 
+        int surface = blockpos$mutable.getY()  ;
+        
         for(int h = blockpos$mutable.getY() ; h >= floor ; h--) {
     			chunkIn.setBlockState(blockpos$mutable, Blocks.AIR.getDefaultState(), false);        	
 			blockpos$mutable.move(Direction.DOWN) ;         	
         }
-        
-        
+
         blockpos$mutable.setPos(x, floor - 1, z);
+        
 
         
-        /*
-        d = d * -1  ; 
-        if( d > 0.85) {
-        	d = d - 1 ; 
-        }
-        */
         
-        /*
-        if(d > 0 && d < 0.3) {
-        	d = d + 0.5 ; 
-        } else if(d < 0) {
-        	d = d + 0.15 ; 
-        }
-        */
-        
-		//double height = d * coff ; 
-
-        
-        if(d < 0 && d > -0.5) {
-        	d = 0 ;
-        }
-        
-        
-        double height = d * 2.85 ; 
-        //double height = d * 1.85 ; 
-
 		if(height >= 0) {
 			
-			height++ ;
+			//height++ ;
+			if(surface > floor) {
+				height = height + (surface - floor) / 2	;			
+			}
+			
+			height = Math.max(height, 1) ; 
+			height = Math.round( height ) ; 
 			
 			for(int h = 0 ; h <= height ; h++) {	
-				chunkIn.setBlockState(blockpos$mutable, config.getTop(), false);
+				
+				if( h == height )				
+					chunkIn.setBlockState(blockpos$mutable, config.getTop(), false);
+				else
+					chunkIn.setBlockState(blockpos$mutable, config.getUnder(), false);
+				
 				blockpos$mutable.move(Direction.UP) ; 
 			}  			
 		} 
 		else {
+			
 			
 			height = Math.max(height, -1) ; 
 			

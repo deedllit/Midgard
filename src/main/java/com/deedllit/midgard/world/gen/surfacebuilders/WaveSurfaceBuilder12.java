@@ -29,11 +29,11 @@ import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
-public class WaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>  {
+public class WaveSurfaceBuilder12 extends SurfaceBuilder<SurfaceBuilderConfig>  {
 	
 	private FastNoiseLite noiseLite = null ; 
 	
-	public WaveSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> configFactory) {
+	public WaveSurfaceBuilder12(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> configFactory) {
 		super(configFactory);
 	}
 

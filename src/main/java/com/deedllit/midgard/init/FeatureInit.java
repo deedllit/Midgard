@@ -29,6 +29,16 @@ public class FeatureInit {
 	public static Feature<BaseTreeFeatureConfig> TEST =
 			new MidgardBasicTreeFeature.Builder().log(Blocks.ACACIA_LOG.getDefaultState()).leaves(Blocks.ACACIA_LEAVES.getDefaultState()).create() ;  
 
+
+	public static Feature<BaseTreeFeatureConfig> MANGROVE_TREE =
+			new MidgardMangroveTreeFeature.Builder()
+				.log(BlockInit.MIDGARD_MANGROVE_LOG.get().getDefaultState())
+				.leaves(Blocks.JUNGLE_LEAVES.getDefaultState())
+				.minSize(6)
+				.maxSize(8)
+				.create() ;  
+
+	
 	public static Feature<BaseTreeFeatureConfig> BLACK_POPLAR_SMALL =
 			new MidgardPoplarTreeFeature.Builder()
 				.log(BlockInit.BLACK_POPLAR_LOG.get().getDefaultState())
@@ -223,6 +233,7 @@ public class FeatureInit {
 	/*
 	 * MIDGARD
 	 */	
+	public static Feature<NoFeatureConfig> MIDGARD_BAHAY_KUBO = new MidgardBahayKubo(NoFeatureConfig::deserialize) ; 
 	
 	
 	
@@ -233,9 +244,12 @@ public class FeatureInit {
 	public static Feature<NoFeatureConfig> MIDGARD_SMALL_ISLAND = new MidgardIslandFeature(NoFeatureConfig::deserialize) ; 
 	public static Structure<NoFeatureConfig> RUN_DOWN_HOUSE = new RunDownHouseStructure(NoFeatureConfig::deserialize);
 	public static IStructurePieceType RDHP = RunDownHousePieces.Piece::new;
+	
 	public static Structure<NoFeatureConfig> MANGROVE_WITCH = new MangroveWitchHutStructure(NoFeatureConfig::deserialize);
 	public static IStructurePieceType MANGROVE_WITCH_PIECES = MangroveWitchHutPieces.Piece::new;
 
+	public static Structure<NoFeatureConfig> BAHAY_KUBO_HUT = new BahayKuboHutStructure(NoFeatureConfig::deserialize);
+	//public static IStructurePieceType BAHAY_KUBO_HUT_PIECES = BahayKuboHutPieces.Piece::new;
 	
 	
 	
@@ -250,6 +264,8 @@ public class FeatureInit {
 		Midgard.register(registry, MANGROVE_WITCH, "mangrove_witch_hut");
 		register(MANGROVE_WITCH_PIECES, "mangrove_witch_hut_pieces");
 
+		Midgard.register(registry, BAHAY_KUBO_HUT, "bahay_kubo_hut");
+		//register(BAHAY_KUBO_HUT_PIECES, "bahay_kubo_hut_pieces");
 		
 	}
 	

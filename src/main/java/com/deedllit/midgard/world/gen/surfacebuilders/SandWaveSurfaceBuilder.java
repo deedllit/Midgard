@@ -51,7 +51,7 @@ public class SandWaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 	        SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
 	        this.noiseLite = new FastNoiseLite((int) seed);	
 
-	        this.noiseLite.SetNoiseType(NoiseType.OpenSimplex2S);
+	        this.noiseLite.SetNoiseType(NoiseType.OpenSimplex2);
 	        this.noiseLite.SetFrequency(0.03f);
 	        this.noiseLite.SetFractalType(FractalType.PingPong);
 	        this.noiseLite.SetFractalOctaves(4);
@@ -59,11 +59,11 @@ public class SandWaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 	        this.noiseLite.SetFractalGain(0.5f);
 	        this.noiseLite.SetFractalWeightedStrength(-0.40f);
 	        this.noiseLite.SetFractalPingPongStrength(1.0f);
-	        this.noiseLite.SetCellularDistanceFunction(CellularDistanceFunction.Euclidean);
-	        this.noiseLite.SetCellularReturnType(CellularReturnType.Distance2Mul);
-	        this.noiseLite.SetCellularJitter(1.25f);
-	        this.noiseLite.SetDomainWarpType(DomainWarpType.OpenSimplex2);
-	        this.noiseLite.SetDomainWarpAmp(15.0f);
+	        //this.noiseLite.SetCellularDistanceFunction(CellularDistanceFunction.Euclidean);
+	        //this.noiseLite.SetCellularReturnType(CellularReturnType.Distance2Mul);
+	        //this.noiseLite.SetCellularJitter(1.25f);
+	        //this.noiseLite.SetDomainWarpType(DomainWarpType.OpenSimplex2);
+	        //this.noiseLite.SetDomainWarpAmp(15.0f);
 	        
 	        /*
 	        this.noiseLite.SetNoiseType(NoiseType.Cellular);
@@ -108,7 +108,7 @@ public class SandWaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 		//double coff = 10 / n ; 
 		
 		double n = -0.15 ; 
-		double coff = 2.85 ; 
+		double coff = 3.25 ; 
 		
         float h1 = (float) biomeIn.INFO_NOISE.noiseAt(mX * 0.225D, mZ * 0.125D, false) ;  	
         float h2 = (float) biomeIn.INFO_NOISE.noiseAt(mX * 0.125, mZ * 0.225D, false) ;	
@@ -121,9 +121,12 @@ public class SandWaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
 		double sincos = Math.sin(mX / (1 + h1) ) * Math.cos(mZ / (1.05 + h2)) ; 
 		double d = this.noiseLite.GetNoise(x, z) ;
 		
+		//d *= -1 ; 
+		
+		/*
 		if(d < 0 && sincos > 0)
 			d = d + sincos / 2 ; 
-		
+		*/
 		
 		
 		blockpos$mutable.setPos(x, startHeight, z);
@@ -145,6 +148,8 @@ public class SandWaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
         }
 
         
+        int surface = blockpos$mutable.getY()  ;
+
         for(int h = blockpos$mutable.getY() ; h >= floor ; h--) {
     			chunkIn.setBlockState(blockpos$mutable, Blocks.AIR.getDefaultState(), false);        	
 			blockpos$mutable.move(Direction.DOWN) ;         	
@@ -152,15 +157,31 @@ public class SandWaveSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig>
         
         
         blockpos$mutable.setPos(x, floor - 1, z);
+       
         
-        if(d > 0.5)
-        	d = 0.5 + (d/2) ; 
+        if(d < 0 && d > -0.1) 
+        	d = 0 ;
         
-        double height = d * 3.25 ; 
+        //if(d < 0)
+        //	d += (d/2) * -1 ; 
+        
+        
+        double height = d * coff ; 
 
 		if(height >= 0) {
 			
-			height++ ;
+			
+			if(surface > floor) {
+				height = height + (surface - floor) / 2	;			
+			}
+			
+			
+			
+			height = Math.max(height, 1) ; 
+			height = Math.round( height ) ; 
+
+			if(height > 3)
+				height = 3 + height % 2 ; 
 			
 			for(int h = 0 ; h <= height ; h++) {	
 				chunkIn.setBlockState(blockpos$mutable, config.getTop(), false);

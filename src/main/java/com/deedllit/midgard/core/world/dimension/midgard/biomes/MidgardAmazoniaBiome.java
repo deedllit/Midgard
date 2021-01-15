@@ -38,12 +38,13 @@ public class MidgardAmazoniaBiome extends MidgardBiome {
 		  	.waterFogColor(2302743)
 		  	.parent((String)null));
 
+			//this.addStructure(FeatureInit.BAHAY_KUBO_HUT.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+
 			this.addStructure(Feature.JUNGLE_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			this.addStructure(
 					Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
 			this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	      
-			
 			DefaultBiomeFeatures.addCarvers(this);
 			DefaultBiomeFeatures.addStructures(this);
 			DefaultBiomeFeatures.addLakes(this);
@@ -51,6 +52,13 @@ public class MidgardAmazoniaBiome extends MidgardBiome {
 			DefaultBiomeFeatures.addStoneVariants(this);
 			DefaultBiomeFeatures.addOres(this);
 			DefaultBiomeFeatures.addSedimentDisks(this);
+
+			this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, 
+		    		  FeatureInit.MANGROVE_TREE.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)
+		    		  .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP
+		    				  .configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+			
+			/*
 			DefaultBiomeFeatures.addBamboo(this);
 			DefaultBiomeFeatures.addJungleTreeForest(this);
 			DefaultBiomeFeatures.addExtraDefaultFlowers(this);
@@ -60,7 +68,7 @@ public class MidgardAmazoniaBiome extends MidgardBiome {
 			DefaultBiomeFeatures.addSprings(this);
 			DefaultBiomeFeatures.addJunglePlants(this);
 			DefaultBiomeFeatures.addFreezeTopLayer(this);
-			 
+			*/
 	      
 	      this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.PIG, 10, 4, 4));
 	      this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));

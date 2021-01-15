@@ -3,16 +3,22 @@ package com.deedllit.midgard.core.world.dimension.midgard.biomes;
 import com.deedllit.midgard.api.enums.MidgardClimate;
 import com.deedllit.midgard.core.world.biome.MidgardBiome;
 import com.deedllit.midgard.core.world.dimension.midgard.config.MidgardDefaultBiomeFeatures;
+import com.deedllit.midgard.init.FeatureInit;
 import com.deedllit.midgard.init.SurfaceBuilderInit;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.structure.BuriedTreasureConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
+import net.minecraft.world.gen.placement.ChanceConfig;
+import net.minecraft.world.gen.placement.IPlacementConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -52,7 +58,7 @@ public class MidgardTropicalBeachBiome extends MidgardBiome {
 	      DefaultBiomeFeatures.addMushrooms(this);
 	      DefaultBiomeFeatures.addReedsAndPumpkins(this);
 	      DefaultBiomeFeatures.addSprings(this);
-	      	      
+	      	      	      	      
 	      DefaultBiomeFeatures.addFreezeTopLayer(this);
 	      
 	      this.addSpawn(EntityClassification.WATER_CREATURE, new Biome.SpawnListEntry(EntityType.SQUID, 5, 1, 4));

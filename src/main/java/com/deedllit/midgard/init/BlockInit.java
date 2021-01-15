@@ -38,6 +38,9 @@ public class BlockInit {
 	public static final RegistryObject<Block> SULFUR_BLOCK = BLOCKS.register("sulfur",
 			() -> new Block(Block.Properties.from(Blocks.GRAVEL)));
 
+	public static final RegistryObject<Block> SALT_BLOCK = BLOCKS.register("salt",
+			() -> new Block(Block.Properties.from(Blocks.STONE)));
+
 	public static final RegistryObject<Block> LEAD_ORE = BLOCKS.register("lead_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(2.0F).sound(SoundType.STONE)));
 	
@@ -528,6 +531,9 @@ public class BlockInit {
 			() -> new MidgardSaplingBlock(new BlackPoplarTree(),  Block.Properties.from(Blocks.OAK_SAPLING)));
 	
 	//MIDGARD_MANGROVE TREE
+
+	public static final RegistryObject<Block> MANGROVE_SAPLING = BLOCKS.register("mangrove_sapling",
+			() -> new MidgardSaplingBlock(new MangroveTree(),  Block.Properties.from(Blocks.OAK_SAPLING)));
 
 	public static final RegistryObject<Block> MIDGARD_MANGROVE_LOG = BLOCKS.register("midgard_mangrove_log",
 			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.DARK_OAK_LOG)));
